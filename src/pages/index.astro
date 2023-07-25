@@ -14,6 +14,7 @@ import projects from "@/data/projects";
 const posts = await getCollection("posts");
 ---
 
+<!--suppress ALL -->
 <Layout>
   <main class="flex flex-col gap-20">
     <article class="flex flex-col gap-8">
@@ -60,7 +61,14 @@ const posts = await getCollection("posts");
       <section class="flex flex-col gap-4">
         {
           projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
+            projects.map((project) => (
+              <ProjectCard
+                title={project.title}
+                techs={project.techs}
+                link={project.link}
+                isComingSoon={project.isComingSoon}
+              />
+            ))
         }
       </section>
     </article>
@@ -70,10 +78,9 @@ const posts = await getCollection("posts");
         <h3 class="text-lg text-neutral-100">Get in touch</h3>
       </header>
       <p>
-        Email me at <Link
-          href={`mailto:${presentation.mail}`}
-          label={presentation.mail}
-        /> or follow me via my social links.
+        Email me at
+        <Link href={`mailto:${presentation.mail}`} label={presentation.mail} />
+        or follow me via my social links.
       </p>
 
       <SocialLinks />
