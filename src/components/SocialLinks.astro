@@ -3,15 +3,15 @@ import Link from "./shared/Link.astro";
 import presentation from "@/data/presentation";
 ---
 
-<ul role="list" class="flex flex-row gap-2 w-full text-center text-[2rem]">
+<ul role="list" class="flex flex-row gap-2 w-full text-[1.5rem]">
   {
     presentation.socials.map((social, index) => (
       <>
-        <li class="w-full text-center">
+        <li class="text-gray-500">
           <Link href={social.link} label={social.label} />
         </li>
 
-        {presentation.socials.length - 1 !== index && <li>/</li>}
+        {presentation.socials.length - 1 !== index && <li class="text-gray-500">/</li>}
       </>
     ))
   }

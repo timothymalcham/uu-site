@@ -12,13 +12,21 @@ type Presentation = {
 
 const presentation: Presentation = {
     mail: "email@unusualundertaking.com",
-    title: "unusual undertaking",
+    title: "unusual\nundertaking",
     description:
-        "A 1-man studio specializing in art, game dev, and building digital products.",
+        "A studio specializing in art, game dev, and building digital products.",
     socials: [
         {
             label: "Twitter",
             link: "https://twitter.com/uu_studio",
+        },
+        {
+            label: "Discord",
+            link: "https://discord.gg/ztctP6EwDf",
+        },
+        {
+            label: "Instagram",
+            link: "https://www.instagram.com/unusual_undertaking/",
         },
     ],
 };

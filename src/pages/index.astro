@@ -18,9 +18,9 @@ const posts = await getCollection("posts");
 <Layout>
   <main class="flex flex-col gap-24">
     <article class="flex flex-col gap-20">
-      <h1 class="text-[4rem] text-neutral-300 text-center leading-[1.1]">{presentation.title}</h1>
+      <h1 class="text-[4rem] text-neutral-300 leading-[1.1]">unusual<br>undertaking</h1>
       <h2
-        class="text-center text-[4rem] leading-[1.1] text-gray-500"
+        class="text-[4rem] leading-[1.1] text-gray-500"
         set:html={convertAsteriskToStrongTag(presentation.description)}
       />
     </article>
@@ -74,9 +74,9 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-[3rem] text-neutral-400 text-center w-full">Get in touch</h3>
+        <h3 class="text-[1.5rem] text-gray-400 w-full">Get in touch</h3>
       </header>
-      <p class="text-center text-[2rem] leading-[1.4] text-gray-500">
+      <p class="text-[1.5rem] leading-[1.4] text-gray-500">
         Email me at
         <Link href={`mailto:${presentation.mail}`} label={presentation.mail} isUnderline />
         <br>or follow me via my social links:
