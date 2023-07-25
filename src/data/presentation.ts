@@ -18,7 +18,7 @@ const presentation: Presentation = {
     socials: [
         {
             label: "Twitter",
-            link: "https://twitter.com/uu-studio",
+            link: "https://twitter.com/uu_studio",
         },
     ],
 };
