@@ -1,16 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import HalftoneNoise from '../components/Halftone';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<main class="grid grid-cols-12 grid-rows-12 min-h-screen">
+	<main class="grid grid-cols-12 grid-rows-12 min-h-screen relative">
 		<header class="flex flex-col justify-end col-span-5 row-span-5 bg-stone-900">
 			<h1 class="text-8xl leading-[1.1] p-8 text-right tracking-loose"><span class="text-stone-700">An</span> Unusual<br />Undertaking</h1>
 		</header>
+		<div class="absolute top-0 right-0 z-[-1]">
+			<HalftoneNoise 
+				dotSize={8}
+				spacing={8}
+				noiseScale={0.05}
+				animationIncrement={1}
+				speed={750} 
+				width={2000} 
+				height={800} 
+				client:load
+			/>
+		</div>
 		<div class="flex flex-col justify-start col-span-7 row-span-7 row-start-5 col-start-6 bg-stone-900">
 			<h2 class="text-8xl leading-[1.1] p-8 tracking-loose">A <span class="text-amber-400">studio</span> specializing in <span class="text-green-400">art</span>, <span class="text-violet-400">engineering</span>, <span class="text-amber-400">game dev</span>, and <span class="text-green-400">building software products.</span></h2>
 		</div>

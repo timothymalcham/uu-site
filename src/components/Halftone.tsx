@@ -1,4 +1,3 @@
-import react from '@astrojs/react';
 import { useEffect, useRef, useState } from 'react';
 
 /**
@@ -21,14 +20,14 @@ function HalftoneNoise({
     width = 640,
     height = 480
 }: {
-    speed: number;
-    dotSize: number;
-    spacing: number;
-    noiseScale: number;
-    animationIncrement: number;
-    sharpness: number;
-    width: number;
-    height: number;
+    speed?: number;
+    dotSize?: number;
+    spacing?: number;
+    noiseScale?: number;
+    animationIncrement?: number;
+    sharpness?: number;
+    width?: number;
+    height?: number;
 }) {
     const canvasRef = useRef(null);
     const [time, setTime] = useState(0);
@@ -165,16 +164,12 @@ function HalftoneNoise({
     }, [time, dotSize, spacing, noiseScale, sharpness]);
 
     return (
-        <div className="flex items-center justify-center w-full h-full bg-gray-100 p-4">
-            <div className="bg-white rounded-lg shadow-lg p-4">
-                <canvas
-                    ref={canvasRef}
-                    width={width}
-                    height={height}
-                    className="bg-white rounded"
-                />
-            </div>
-        </div>
+        <canvas
+            ref={canvasRef}
+            width={width}
+            height={height}
+            className=" bg-stone-900"
+        />
     );
 };
 

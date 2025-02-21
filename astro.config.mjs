@@ -8,5 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [react()],
+  integrations: [react({
+    experimentalDisableStreaming: true,
+  })],
 });
