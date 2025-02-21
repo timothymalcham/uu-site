@@ -17,7 +17,9 @@ function HalftoneNoise({
     spacing = 8,
     noiseScale = 0.02,
     animationIncrement = 0.01,
-    sharpness = 0.8
+    sharpness = 0.8,
+    width = 640,
+    height = 480
 }: {
     speed: number;
     dotSize: number;
@@ -25,6 +27,8 @@ function HalftoneNoise({
     noiseScale: number;
     animationIncrement: number;
     sharpness: number;
+    width: number;
+    height: number;
 }) {
     const canvasRef = useRef(null);
     const [time, setTime] = useState(0);
@@ -165,8 +169,8 @@ function HalftoneNoise({
             <div className="bg-white rounded-lg shadow-lg p-4">
                 <canvas
                     ref={canvasRef}
-                    width={320}
-                    height={320}
+                    width={width}
+                    height={height}
                     className="bg-white rounded"
                 />
             </div>
