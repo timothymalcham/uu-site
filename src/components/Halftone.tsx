@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from '@astrojs/react';
+import react from '@astrojs/react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * HalftoneNoise creates an animated halftone pattern using Perlin noise
@@ -29,7 +30,7 @@ function HalftoneNoise({
     const [time, setTime] = useState(0);
 
     // Function to generate Perlin noise
-    const noise = (x, y, z) => {
+    const noise = (x: number, y: number, z: number) => {
         // Permutation table
         const p = new Array(512);
         for (let i = 0; i < 256; i++) {
@@ -73,13 +74,13 @@ function HalftoneNoise({
     };
 
     // Fade function as defined by Ken Perlin
-    const fade = (t) => t * t * t * (t * (t * 6 - 15) + 10);
+    const fade = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 
     // Linear interpolation
-    const lerp = (t, a, b) => a + t * (b - a);
+    const lerp = (t: number, a: number, b: number) => a + t * (b - a);
 
     // Gradient function
-    const grad = (hash, x, y, z) => {
+    const grad = (hash: number, x: number, y: number, z: number) => {
         const h = hash & 15;
         const u = h < 8 ? x : y;
         const v = h < 4 ? y : h === 12 || h === 14 ? x : z;
@@ -87,7 +88,7 @@ function HalftoneNoise({
     };
 
     // Function to create a dot with controlled sharpness
-    const drawDot = (ctx, x, y, radius, intensity) => {
+    const drawDot = (ctx: CanvasRenderingContext2D, x: number, y: number, radius: number, intensity: number) => {
         // Create a radial gradient for the dot
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
 
@@ -113,8 +114,10 @@ function HalftoneNoise({
 
     // Drawing function that renders a single frame
     const drawFrame = () => {
-        const canvas = canvasRef.current;
+        if (!canvasRef.current) return;
+        const canvas: HTMLCanvasElement = canvasRef.current;
         const ctx = canvas.getContext('2d');
+        if (!ctx) return;
 
         // Clear the canvas with a white background
         ctx.fillStyle = 'white';
