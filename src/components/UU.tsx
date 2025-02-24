@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const rotations = [45, 90, 180, -45, -90, -180, 0, 0, 0, 0]; // Include more 0s to make rotation less frequent
-const blankProbability = 0.6; // 60% chance of a cell being blank
+const blankProbability = 0.33; // 60% chance of a cell being blank
 
 export function UU() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -11,16 +11,16 @@ export function UU() {
     const [visibleCells, setVisibleCells] = useState<boolean[]>([]);
 
     // Character dimensions in pixels (approximate)
-    const charWidth = 40;  // Width of 'U' character
-    const charHeight = 40; // Height of 'U' character
-    const gap = 4;         // Gap between characters
+    const charWidth = 10;  // Width of 'U' character
+    const charHeight = 10; // Height of 'U' character
+    const gap = 3;         // Gap between characters
 
     // Function to generate new rotations and visibility
     const generateGridState = (count: number) => {
-        const newRotations = Array.from({ length: count }, () => 
+        const newRotations = Array.from({ length: count }, () =>
             rotations[Math.floor(Math.random() * rotations.length)]
         );
-        const newVisibility = Array.from({ length: count }, () => 
+        const newVisibility = Array.from({ length: count }, () =>
             Math.random() > blankProbability
         );
         return { rotations: newRotations, visibility: newVisibility };
@@ -37,7 +37,7 @@ export function UU() {
             const cols = Math.floor(width / (charWidth + gap));
             const rows = Math.floor(height / (charHeight + gap));
             setGrid({ rows, cols });
-            
+
             // Generate initial state
             const totalLetters = rows * cols;
             const { rotations, visibility } = generateGridState(totalLetters);
@@ -63,7 +63,7 @@ export function UU() {
             const { rotations, visibility } = generateGridState(totalLetters);
             setLetterRotations(rotations);
             setVisibleCells(visibility);
-        }, 1200);
+        }, 4200);
 
         return () => clearInterval(interval);
     }, [grid.rows, grid.cols]);
@@ -85,7 +85,7 @@ export function UU() {
                 {Array.from({ length: grid.rows * grid.cols }).map((_, i) => (
                     <span
                         key={i}
-                        className="text-2xl font-sans text-stone-600 select-none transition-all duration-700 ease-in-out hover:text-stone-400"
+                        className="font-sans text-neutral-700 select-none transition-all duration-2000 ease-in-out hover:text-neutral-100"
                         style={{
                             width: `${charWidth}px`,
                             height: `${charHeight}px`,
@@ -97,7 +97,7 @@ export function UU() {
                             opacity: visibleCells[i] ? 1 : 0
                         }}
                     >
-                        u
+                        U
                     </span>
                 ))}
             </div>

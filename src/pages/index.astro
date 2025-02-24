@@ -5,36 +5,42 @@ import {UU} from '../components/UU.tsx';
 
 <Layout>
 	<main class="grid grid-cols-12 grid-rows-12 min-h-screen relative">
-		<header class="flex flex-col justify-end col-span-5 row-span-5">
-			<h1 class="text-8xl leading-[1.1] p-8 text-right tracking-loose font-sans"><span class="text-stone-700">An</span> Unusual<br />Undertaking</h1>
+		<header 
+			class="flex flex-col justify-end col-span-5 row-span-5 relative"
+		>
+			<div class="absolute inset-0 noise" />
+			<h1 class="text-2xl leading-[1.2] text-left m-8 tracking-looser font-sans"><span class="text-neutral-700">An</span> Unusual<br />Undertaking</h1>
 		</header>
 
-		<div class="flex flex-col justify-start col-span-7 row-span-5 overflow-hidden ">
-			<UU client:load />
+		<div class="flex flex-col justify-start col-span-7 row-span-5 overflow-hidden relative">
+			<div class="absolute inset-0 noise" />
+			<UU client:only="react" />
 		</div>
 
-		<div class="flex flex-col justify-start col-span-5 row-span-7 overflow-hidden ">
-			<!-- <Wave2 client:load elements={500} /> -->
-			<UU client:load />
+		<div class="flex flex-col justify-start col-span-5 row-span-5 overflow-hidden relative">
+			<div class="absolute inset-0 noise" />
+			<UU client:only="react" />
 		</div>
 
-		<div class="flex flex-col justify-start col-span-7 row-span-7 col-start-6">
-			<h2 class="text-8xl leading-[1.1] p-8 tracking-loose">A <span class="text-amber-400">studio</span> specializing in <span class="text-green-400">art</span>, <span class="text-violet-400">engineering</span>, <span class="text-amber-400">game dev</span>, and <span class="text-green-400">building software products.</span></h2>
+		<div class="flex flex-col justify-start col-span-7 row-span-5 col-start-6 relative">
+			<div class="absolute inset-0 noise" />
+			<h2 class="text-2xl leading-[1.2] p-8 tracking-loose max-w-xl">A <span class="text-neutral-400">studio</span> specializing in <span class="text-neutral-400">art</span>, <span class="text-neutral-400">engineering</span>, <span class="text-neutral-400">game dev</span>, and <span class="text-neutral-400">building software products.</span></h2>
 		</div>
 	</main>
+	</main>
 	<section class="grid grid-cols-12 grid-rows-12 min-h-screen">
-		<header class="flex flex-col justify-end col-span-4 col-start-2 row-span-2 bg-stone-900">
-			<h3 class="text-4xl leading-[1.1] p-8 text-right tracking-loose"><span class="text-stone-700">A</span> Solo Undertaking</h3>
+		<header class="flex flex-col justify-end col-span-4 col-start-2 row-span-2 bg-neutral-900">
+			<h3 class="text-4xl leading-[1.1] p-8 text-right tracking-loose"><span class="text-neutral-700">A</span> Solo Undertaking</h3>
 		</header>
-		<div class="flex flex-col justify-start col-span-7 row-span-6 row-start-2 col-start-6 bg-stone-900 bg-">
-			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">I’m <span class="text-amber-400">Tim</span>, artist / game dev / engineer and the sole founder and member of <span class="text-amber-400">Unusual Undertaking.</span></p>
+		<div class="flex flex-col justify-start col-span-7 row-span-6 row-start-2 col-start-6 bg-neutral-900 bg-">
+			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">I’m <span class="text-neutral-400">Tim</span>, artist / game dev / engineer and the sole founder and member of <span class="text-neutral-400">Unusual Undertaking.</span></p>
 			<p class="text-4xl leading-[1.1] p-8 pt-4 pb-4 tracking-loose">I operate on a strong belief that approaching projects with a multi-disciplinary and generalist perspective yields the most interesting results.</p>
 			<p class="text-4xl leading-[1.1] p-8 pt-4 tracking-loose">When you skillfully combine art and engineering, you end up making things people love.</p>
 		</div>
 	</section>
 	<section class="grid grid-cols-12 grid-rows-12 min-h-screen -mt-[300px]">
-		<div class="flex flex-col justify-start col-span-7 row-span-6 bg-stone-900">
-			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">Currently accepting work involving building:<br /><br /><span class="text-amber-400">Fullstack web apps</span> / creative coding projects / unique websites / game prototypes / browser-based games</p>
+		<div class="flex flex-col justify-start col-span-7 row-span-6 bg-neutral-900">
+			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">Currently accepting work involving building:<br /><br /><span class="text-neutral-400">Fullstack web apps</span> / creative coding projects / unique websites / game prototypes / browser-based games</p>
 		</div>
 	</section>
 </Layout>
