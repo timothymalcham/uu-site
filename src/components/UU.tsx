@@ -29,7 +29,7 @@ export function UU() {
         updateCanvasSize();
 
         // Set up the grid
-        const cellSize = 20; // Size of each cell in pixels
+        const cellSize = 15; // Size of each cell in pixels
         const cols = Math.floor(canvas.width / cellSize);
         const rows = Math.floor(canvas.height / cellSize);
 
@@ -39,12 +39,12 @@ export function UU() {
 
         // Draw the grid of 'u' characters
         ctx.fillStyle = '#818181';
-        ctx.font = '16px "Bluu Next"';
+        ctx.font = '12px "Bluu Next"';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.imageSmoothingEnabled = false; // Disable anti-aliasing
 
-        const shouldRenderCell = () => Math.random() < 0.4;
+        const shouldRenderCell = () => Math.random() < 0.6;
 
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
