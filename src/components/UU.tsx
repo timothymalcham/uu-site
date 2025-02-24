@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const rotations = [45, 90, 180, -45, -90, -180, 0, 0, 0, 0]; // Include more 0s to make rotation less frequent
-const blankProbability = 0.33; // 60% chance of a cell being blank
+const blankProbability = 0.45; // 60% chance of a cell being blank
 
 export function UU() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -71,10 +71,10 @@ export function UU() {
     return (
         <div
             ref={containerRef}
-            className="w-full h-full relative overflow-hidden"
+            className="w-full h-full relative overflow-hidden transform-gpu"
         >
             <div
-                className="absolute inset-0 grid place-items-center"
+                className="absolute inset-0 grid place-items-center transform-gpu"
                 style={{
                     display: 'grid',
                     gridTemplateColumns: `repeat(${grid.cols}, ${charWidth + gap}px)`,
@@ -85,16 +85,18 @@ export function UU() {
                 {Array.from({ length: grid.rows * grid.cols }).map((_, i) => (
                     <span
                         key={i}
-                        className="font-sans text-neutral-700 select-none transition-all duration-2000 ease-in-out hover:text-neutral-100"
+                        className="font-sans text-neutral-500 mix-blend-screen select-none will-change-transform will-change-opacity transition-[transform,opacity] duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
                         style={{
                             width: `${charWidth}px`,
                             height: `${charHeight}px`,
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            transform: `rotate(${letterRotations[i] || 0}deg)`,
+                            transform: `translate3d(0,0,0) rotate(${letterRotations[i] || 0}deg)`,
                             transformOrigin: 'center',
-                            opacity: visibleCells[i] ? 1 : 0
+                            opacity: visibleCells[i] ? 0.5 : 0,
+                            backfaceVisibility: 'hidden',
+                            perspective: '1000px'
                         }}
                     >
                         U
