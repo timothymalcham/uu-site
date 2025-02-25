@@ -1,7 +1,21 @@
 import { useEffect, useRef } from 'react';
 
+type Cell = {
+    visible: boolean;
+    currentRotation: number;
+    targetRotation: number;
+    previousRotation: number;
+    animationStartTime: number | null;
+};
+
+const ROTATION_OPTIONS = [45, 90, 180, -45, -90, -180];
+const ANIMATION_INTERVAL = 5000; // 4 seconds
+const ANIMATION_DURATION = 2000; // 2 seconds
+
 export function UU() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const gridRef = useRef<Cell[][]>([]);
+    const animationFrameRef = useRef<number | null>(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -29,7 +43,7 @@ export function UU() {
         updateCanvasSize();
 
         // Set up the grid
-        const cellSize = 15; // Size of each cell in pixels
+        const cellSize = 14; // Size of each cell in pixels
         const cols = Math.floor(canvas.width / cellSize);
         const rows = Math.floor(canvas.height / cellSize);
 
@@ -39,22 +53,76 @@ export function UU() {
 
         // Draw the grid of 'u' characters
         ctx.fillStyle = '#818181';
-        ctx.font = '12px "Bluu Next"';
+        ctx.font = '1rem "Bluu Next"';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.imageSmoothingEnabled = false; // Disable anti-aliasing
 
-        const shouldRenderCell = () => Math.random() < 0.6;
+        // Initialize grid
+        gridRef.current = Array(rows).fill(0).map(() =>
+            Array(cols).fill(0).map(() => ({
+                visible: Math.random() < 0.6,
+                currentRotation: 0,
+                targetRotation: 0,
+                previousRotation: 0,
+                animationStartTime: null
+            }))
+        );
 
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                if (shouldRenderCell()) {
-                    const x = col * cellSize + cellSize / 2;
-                    const y = row * cellSize + cellSize / 2;
-                    ctx.fillText('U', x, y);
+        const drawGrid = (timestamp: number) => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const cell = gridRef.current[row][col];
+                    if (cell.visible) {
+                        const x = col * cellSize + cellSize / 2;
+                        const y = row * cellSize + cellSize / 2;
+
+                        // Handle rotation animation
+                        if (cell.animationStartTime !== null) {
+                            const progress = (timestamp - cell.animationStartTime) / ANIMATION_DURATION;
+                            if (progress >= 1) {
+                                cell.currentRotation = cell.targetRotation;
+                                cell.animationStartTime = null;
+                            } else {
+                                // Interpolate between previous and target rotation
+                                cell.currentRotation = cell.previousRotation +
+                                    (cell.targetRotation - cell.previousRotation) * progress;
+                            }
+                        }
+
+                        ctx.save();
+                        ctx.translate(x, y);
+                        ctx.rotate(cell.currentRotation * Math.PI / 180);
+                        ctx.fillText('U', 0, 0);
+                        ctx.restore();
+                    }
                 }
             }
-        }
+
+            animationFrameRef.current = requestAnimationFrame(drawGrid);
+        };
+
+        // Start animation loop
+        animationFrameRef.current = requestAnimationFrame(drawGrid);
+
+        // Set up rotation interval
+        const rotationInterval = setInterval(() => {
+            const timestamp = performance.now();
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const cell = gridRef.current[row][col];
+                    if (cell.visible) {
+                        cell.previousRotation = cell.currentRotation;
+                        // Add new rotation to current rotation
+                        const newRotation = ROTATION_OPTIONS[Math.floor(Math.random() * ROTATION_OPTIONS.length)];
+                        cell.targetRotation = cell.currentRotation + newRotation;
+                        cell.animationStartTime = timestamp;
+                    }
+                }
+            }
+        }, ANIMATION_INTERVAL);
 
         // Handle window resize
         const handleResize = () => {
@@ -70,19 +138,25 @@ export function UU() {
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.imageSmoothingEnabled = false;
-            for (let row = 0; row < newRows; row++) {
-                for (let col = 0; col < newCols; col++) {
-                    if (shouldRenderCell()) {
-                        const x = col * cellSize + cellSize / 2;
-                        const y = row * cellSize + cellSize / 2;
-                        ctx.fillText('U', x, y);
-                    }
-                }
-            }
+            // Reinitialize grid with new dimensions
+            gridRef.current = Array(newRows).fill(0).map(() =>
+                Array(newCols).fill(0).map(() => ({
+                    visible: Math.random() < 0.6,
+                    currentRotation: 0,
+                    targetRotation: 0,
+                    animationStartTime: null
+                }))
+            );
         };
 
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+            clearInterval(rotationInterval);
+        };
     }, []);
 
     return (
