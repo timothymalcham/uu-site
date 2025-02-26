@@ -73,19 +73,24 @@ import {UU} from '../components/UU.tsx';
 		</div>
 	</main>
 
-	<section class="grid grid-cols-12 grid-rows-12 min-h-screen">
-		<header class="flex flex-col justify-end col-span-4 col-start-2 row-span-2 bg-neutral-900">
-			<h3 class="text-4xl leading-[1.1] p-8 text-right tracking-loose"><span class="text-neutral-700">A</span> Solo Undertaking</h3>
-		</header>
-		<div class="flex flex-col justify-start col-span-7 row-span-6 row-start-2 col-start-6 bg-neutral-900 bg-">
-			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">I’m <span class="text-neutral-400">Tim</span>, artist / game dev / engineer and the sole founder and member of <span class="text-neutral-400">Unusual Undertaking.</span></p>
-			<p class="text-4xl leading-[1.1] p-8 pt-4 pb-4 tracking-loose">I operate on a strong belief that approaching projects with a multi-disciplinary and generalist perspective yields the most interesting results.</p>
-			<p class="text-4xl leading-[1.1] p-8 pt-4 tracking-loose">When you skillfully combine art and engineering, you end up making things people love.</p>
+	<section class="grid grid-cols-12 grid-rows-8 gap-4 relative bg-gradient-to-r from-neutral-950 via-neutral-800 to-neutral-950">
+		<div class="absolute inset-0 noise" />
+
+		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-2 relative" />
+
+		<div class="flex flex-col justify-start items-start col-span-6 row-span-2 col-start-6 relative space-y-6">
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I’m Tim, artist / game dev / engineer and the sole founder and member of Unusual Undertaking.</p>
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I operate on a strong belief that a multi-disciplinary and generalist approach to tackling projects yields the best (and most interesting) results.</p>
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">When you skillfully combine art and engineering, you end up making things people love.</p>
 		</div>
-	</section>
-	<section class="grid grid-cols-12 grid-rows-12 min-h-screen -mt-[300px]">
-		<div class="flex flex-col justify-start col-span-7 row-span-6 bg-neutral-900">
-			<p class="text-4xl leading-[1.1] p-8 pb-4 tracking-loose">Currently accepting work involving building:<br /><br /><span class="text-neutral-400">Fullstack web apps</span> / creative coding projects / unique websites / game prototypes / browser-based games</p>
+
+		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-3 row-start-4 relative">
+			<h3 class="text-xl leading-[1.2] tracking-looser font-sans text-right">Currently accepting work</h3>
+		</div>
+
+		<div class="flex flex-col justify-start items-start col-span-6 row-span-3 col-start-6 row-start-4 relative space-y-6">
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I’m available for creative coding projects, game prototypes, full-stack web applications, and unique websites.</p>
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">Email me at <a class="hover:text-indigo-400 hover:border-indigo-800 transition-colors duration-500 border-b-2 border-neutral-500" href="mailto:email@unusualundertaking.com" class="underline">email@unusualundertaking.com</a></p>
 		</div>
 	</section>
 </Layout>
