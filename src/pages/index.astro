@@ -1,75 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import {UU} from '../components/UU.tsx';
+import { Hero } from '../scenes/hero';
 ---
 
 <Layout>
-	<main class="grid grid-cols-12 grid-rows-12 gap-4 min-h-screen relative bg-gradient-to-r from-neutral-950 via-neutral-800 to-neutral-950">
+	<main class="grid grid-cols-12 pt-12 relative bg-gradient-to-r from-neutral-50 via-neutral-100 to-neutral-50">
 		<div class="absolute inset-0 noise" />
-		<div class="flex flex-col justify-start col-span-12 row-span-9 relative">
-			<div class="flex flex-row justify-center items-center p-2 px-3 h-full w-full relative scale-[1.05]">
-				<div class="absolute inset-0 m-auto h-104 w-104 rounded-full !z-50 border border-neutral-500" />
-				<div class="absolute inset-0 m-auto h-112 w-112 rounded-full !z-50 border border-neutral-500" />
-				<div class="absolute inset-0 m-auto h-128 w-128 rounded-full !z-50 border border-neutral-500" />
-				<div class="absolute inset-0 m-auto h-136 w-136 rounded-full !z-50 border border-neutral-500" />
 
-				<div class="border border-neutral-500 rounded-full w-80 h-80 relative -right-40 z-60">
-					<div class="absolute inset-0 m-auto h-72 w-72 rounded-full z-50 border border-neutral-500" />
-
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-30" />
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-20" />
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-indigo-500 blur-lg mix-blend-screen z-10" />
-					<div class="absolute inset-0 -left-8 m-auto h-44 w-44 rounded-full bg-orange-400 blur-lg mix-blend-screen z-0" />
-				</div>
-
-				<div class="border border-neutral-500 rounded-full w-96 h-96 relative -right-20 z-50">
-					<div class="absolute inset-0 m-auto h-88 w-88 rounded-full z-50 border border-neutral-500" />
-					<div class="absolute inset-0 m-auto h-72 w-72 rounded-full z-50 border border-neutral-500" />
-					<div class="absolute inset-0 m-auto h-64 w-64 rounded-full z-50 border border-neutral-500" />
-
-					<div class="absolute inset-0 m-auto h-36 w-36 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-30" />
-					<div class="absolute inset-0 m-auto h-36 w-36 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-20" />
-					<div class="absolute inset-0 -top-8 m-auto h-40 w-40 rounded-full bg-indigo-500 blur-lg mix-blend-screen z-10" />
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-green-500 blur-lg mix-blend-screen z-0" />
-				</div>
-
-				<div class="border border-neutral-500 rounded-full w-80 h-80 relative left-0 right-0 z-60">
-					<div class="absolute inset-0 m-auto h-72 w-72 rounded-full z-50 border border-neutral-500" />
-
-					<div class="absolute inset-0 m-auto h-44 w-44 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-20" />
-					<div class="absolute inset-0 m-auto h-44 w-44 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-10" />
-					<div class="absolute inset-0 top m-auto h-52 w-52 rounded-full bg-indigo-500 blur-xl mix-blend-screen z-0" />
-					<div class="absolute inset-0 top-8 m-auto h-52 w-52 rounded-full bg-indigo-500 blur-lg mix-blend-screen z-0" />
-				</div>
-
-				<div class="border border-neutral-500 rounded-full w-96 h-96 relative -left-20 z-50">
-					<div class="absolute inset-0 m-auto h-88 w-88 rounded-full z-50 border border-neutral-500" />
-					<div class="absolute inset-0 m-auto h-72 w-72 rounded-full z-50 border border-neutral-500" />
-					<div class="absolute inset-0 m-auto h-64 w-64 rounded-full z-50 border border-neutral-500" />
-
-					<div class="absolute inset-0 m-auto h-36 w-36 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-30" />
-					<div class="absolute inset-0 m-auto h-36 w-36 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-20" />
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-green-500 blur-lg mix-blend-screen z-10" />
-					<div class="absolute inset-0 -top-8 m-auto h-40 w-40 rounded-full bg-indigo-500 blur-lg mix-blend-screen z-0" />
-				</div>
-
-				<div class="border border-neutral-500 rounded-full w-80 h-80 relative -left-40 z-60">
-					<div class="absolute inset-0 m-auto h-72 w-72 rounded-full z-50 border border-neutral-500" />
-
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-30" />
-					<div class="absolute inset-0 m-auto h-40 w-40 rounded-full bg-neutral-700 blur-sm mix-blend-multiply z-20" />
-					<div class="absolute inset-0 right-4 m-auto h-40 w-40 rounded-full bg-indigo-500 blur-lg mix-blend-screen z-10" />
-					<div class="absolute inset-0 -right-8 m-auto h-44 w-44 rounded-full bg-orange-400 blur-lg mix-blend-screen z-0" />
-				</div>
-			</div>
+		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 relative">
+			<h1 class="text-2xl leading-[1.2] tracking-looser font-sans max-w-xs text-neutral-800 text-right">unusual undertaking</h1>
 		</div>
 
-		<header class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-3 relative">
-			<h1 class="text-3xl leading-[1.2] tracking-looser font-sans max-w-xs text-right">Unusual<br />Undertaking</h1>
-		</header>
+		<div class="flex flex-col justify-start place-items-baseline items-end col-span-6 col-start-6 relative">
+			<h2 class="text-xl leading-[1.2] tracking-loose text-neutral-800 text-right">a studio specializing in art, game-dev, and building software products</h2>
+		</div>
 
-		<div class="flex flex-col justify-start items-start col-span-6 row-span-3 col-start-6 relative">
-			<h2 class="text-2xl leading-[1.2] tracking-loose max-w-lg text-neutral-300">A studio specializing in art, game-dev, and building software products.</h2>
+		<div class="flex flex-col justify-start items-start col-span-12 mt-4 col-start-2 col-end-12 relative h-[3px] bg-neutral-800" />
+
+		<!-- <div class="flex flex-row justify-center items-center col-span-12 col-start-2 col-end-12 relative gap-12 min-h-[750px] py-44 midground">
+			<div class="h-36 w-36 bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-225px] translate-y-[120px]" />
+			<div class="h-36 w-36 bg-neutral-800 rounded-full blur-md absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-250px] translate-y-[125px]" />
+
+
+			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[40px] z-10" />
+			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-40px] translate-y-[-40px] z-10" />
+			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[-80px] z-10" />
+			<div class="h-44 w-44 bg-neutral-800 rounded-full blur-lg absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[-150px] z-10" />
+			<div class="h-44 w-44 bg-neutral-800 rounded-full blur- absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[120px] z-10" />
+
+			<div class="h-[275px] w-[275px] bg-lime-300 rounded-full blur-xl absolute top-0 left-0 right-0 bottom-0 m-auto z-5 translate-x-[15px] translate-y-[15px] mix-blend-hard-light" />
+			<div class="h-[275px] w-[275px] bg-violet-300 rounded-full blur-xl absolute top-0 left-0 right-0 bottom-0 m-auto z-5 translate-x-[-15px] translate-y-[-15px] mix-blend-hard-light" /> 
+			<div class="h-[275px] w-[275px] bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
+			<div class="h-[275px] w-[275px] bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
+
+
+			<div class="h-24 w-24 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[250px] translate-y-[-125px]" />
+
+			<div class="h-12 w-12 bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[300px] translate-y-[-200px]" />
+		</div> -->
+
+		<div class="flex flex-col justify-start items-start col-span-12 mt-4 col-start-2 col-end-12 relative">
+			<Hero client:load />
 		</div>
 	</main>
 
@@ -79,7 +50,7 @@ import {UU} from '../components/UU.tsx';
 		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-2 relative" />
 
 		<div class="flex flex-col justify-start items-start col-span-6 row-span-2 col-start-6 relative space-y-6">
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I’m Tim, artist / game dev / engineer and the sole founder and member of Unusual Undertaking.</p>
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I'm Tim, artist / game dev / engineer and the sole founder and member of Unusual Undertaking.</p>
 			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I operate on a strong belief that a multi-disciplinary and generalist approach to tackling projects yields the best (and most interesting) results.</p>
 			<p class="text-xl tracking-looser max-w-xl text-neutral-300">When you skillfully combine art and engineering, you end up making things people love.</p>
 		</div>
@@ -89,8 +60,33 @@ import {UU} from '../components/UU.tsx';
 		</div>
 
 		<div class="flex flex-col justify-start items-start col-span-6 row-span-3 col-start-6 row-start-4 relative space-y-6">
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I’m available for creative coding projects, game prototypes, full-stack web applications, and unique websites.</p>
+			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I'm available for creative coding projects, game prototypes, full-stack web applications, and unique websites.</p>
 			<p class="text-xl tracking-looser max-w-xl text-neutral-300">Email me at <a class="hover:text-indigo-400 hover:border-indigo-800 transition-colors duration-500 border-b-2 border-neutral-500" href="mailto:email@unusualundertaking.com" class="underline">email@unusualundertaking.com</a></p>
 		</div>
 	</section>
 </Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const layers = {
+			foreground: 0.6,  // Fastest speed
+			midground: 0.4,   // Medium speed
+			background: 0.2   // Slowest speed
+		};
+
+		const updateParallax = () => {
+			const scrollY = window.scrollY;
+
+			Object.keys(layers).forEach(layer => {
+				const elements = document.querySelectorAll(`.${layer}`);
+				elements.forEach(element => {
+					const speed = layers[layer as keyof typeof layers];
+					const offset = scrollY * speed;
+					(element as HTMLElement).style.transform = `translateY(${offset}px)`;
+				});
+			});
+		};
+
+		window.addEventListener('scroll', updateParallax);
+	});
+</script>
