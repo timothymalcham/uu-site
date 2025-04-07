@@ -4,8 +4,8 @@ import { Hero } from '../scenes/hero';
 ---
 
 <Layout>
-	<main class="grid grid-cols-12 pt-12 relative bg-gradient-to-r from-neutral-50 via-neutral-100 to-neutral-50">
-		<div class="absolute inset-0 noise" />
+	<main class="grid grid-cols-12 pt-12 relative z-10">
+		<!-- <div class="absolute inset-0 noise z-0" /> -->
 
 		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 relative">
 			<h1 class="text-2xl leading-[1.2] tracking-looser font-sans max-w-xs text-neutral-800 text-right">unusual undertaking</h1>
@@ -39,31 +39,15 @@ import { Hero } from '../scenes/hero';
 			<div class="h-12 w-12 bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[300px] translate-y-[-200px]" />
 		</div> -->
 
-		<div class="flex flex-col justify-start items-start col-span-12 mt-4 col-start-2 col-end-12 relative">
-			<Hero client:load />
+		<div class="flex flex-col justify-start items-start col-span-12 col-start-2 col-end-12 relative min-h-[950px] bg-transparent">
+			<div class="absolute inset-0 m-auto h-[500px] w-[500px] bg-neutral-900 blur-2xl rounded-full z-100" />
+			<div class="absolute inset-0 m-auto h-[550px] w-[550px] bg-yellow-400 blur-2xl rounded-full z-20 translate-x-[-200px] translate-y-[-10px]" />
+			<div class="absolute inset-0 m-auto h-[550px] w-[550px] bg-green-400 blur-2xl rounded-full z-50 translate-x-[-100px] translate-y-[-10px]" />
+			<div class="absolute inset-0 m-auto h-[550px] w-[550px] bg-orange-400 blur-2xl rounded-full z-50 translate-x-[100px] translate-y-[-15px]" />
+			<div class="absolute inset-0 m-auto h-[550px] w-[550px] bg-violet-500 blur-2xl rounded-full z-20 translate-x-[200px] translate-y-[-15px]" />
+			<div class="absolute inset-0 m-auto h-[550px] w-[550px] bg-purple-400 blur-2xl rounded-full z-50 translate-y-[-15px]" />
 		</div>
 	</main>
-
-	<section class="grid grid-cols-12 grid-rows-8 gap-4 relative bg-gradient-to-r from-neutral-950 via-neutral-800 to-neutral-950">
-		<div class="absolute inset-0 noise" />
-
-		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-2 relative" />
-
-		<div class="flex flex-col justify-start items-start col-span-6 row-span-2 col-start-6 relative space-y-6">
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I'm Tim, artist / game dev / engineer and the sole founder and member of Unusual Undertaking.</p>
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I operate on a strong belief that a multi-disciplinary and generalist approach to tackling projects yields the best (and most interesting) results.</p>
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">When you skillfully combine art and engineering, you end up making things people love.</p>
-		</div>
-
-		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 row-span-3 row-start-4 relative">
-			<h3 class="text-xl leading-[1.2] tracking-looser font-sans text-right">Currently accepting work</h3>
-		</div>
-
-		<div class="flex flex-col justify-start items-start col-span-6 row-span-3 col-start-6 row-start-4 relative space-y-6">
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">I'm available for creative coding projects, game prototypes, full-stack web applications, and unique websites.</p>
-			<p class="text-xl tracking-looser max-w-xl text-neutral-300">Email me at <a class="hover:text-indigo-400 hover:border-indigo-800 transition-colors duration-500 border-b-2 border-neutral-500" href="mailto:email@unusualundertaking.com" class="underline">email@unusualundertaking.com</a></p>
-		</div>
-	</section>
 </Layout>
 
 <script>
