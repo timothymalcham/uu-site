@@ -8,52 +8,73 @@ import { Hero } from '../scenes/hero';
 		<Hero client:only="react" />
 	</div> -->
 
-	<div class="grid grid-cols-12 pt-14 relative z-10 bg-neutral-50 rounded-2xl max-w-[1600px] mx-auto">
+	<div class="grid grid-cols-12 p-16 py-18 relative z-10 bg-stone-50 rounded-2xl mx-auto shadow-2xl shadow-stone-100/50">
 		<!-- <div class="absolute inset-0 noise z-0" /> -->
 
-		<div class="flex flex-col justify-start items-start col-span-4 col-start-2 relative">
-			<h1 class="text-2xl leading-[1.2] max-w-xs text-neutral-800 text-right">unusual undertaking</h1>
+		<div class="flex flex-col justify-start items-start col-span-4 relative">
+			<h1 class="text-2xl leading-[1.2] max-w-xs text-stone-800 text-right foreground">unusual undertaking</h1>
 		</div>
 
-		<div class="flex flex-col justify-start place-items-baseline items-end col-span-6 col-start-6 relative">
-			<h2 class="text-2xl leading-[1.2] text-neutral-600 text-right">a studio specializing in building software, game dev, and art</h2>
+		<div class="flex flex-col justify-start place-items-baseline items-end col-span-6 col-start-7 relative">
+			<h2 class="text-2xl leading-[1.2] text-stone-600 text-right foreground">a studio specializing in building software, game dev, and art</h2>
 		</div>
 
-		<!-- <div class="flex flex-col justify-start items-start col-span-12 mt-3 col-start-2 col-end-12 relative h-[2px] bg-neutral-600" /> -->
+		<!-- <div class="flex flex-col justify-start items-start col-span-12 mt-3 relative h-[2px] bg-stone-600" /> -->
 
 		<!-- <div class="flex flex-row justify-center items-center col-span-12 col-start-2 col-end-12 relative gap-12 min-h-[750px] py-44 midground">
-			<div class="h-36 w-36 bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-225px] translate-y-[120px]" />
-			<div class="h-36 w-36 bg-neutral-800 rounded-full blur-md absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-250px] translate-y-[125px]" />
+			<div class="h-36 w-36 bg-stone-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-225px] translate-y-[120px]" />
+			<div class="h-36 w-36 bg-stone-800 rounded-full blur-md absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-250px] translate-y-[125px]" />
 
 
-			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[40px] z-10" />
-			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-40px] translate-y-[-40px] z-10" />
-			<div class="h-56 w-56 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[-80px] z-10" />
-			<div class="h-44 w-44 bg-neutral-800 rounded-full blur-lg absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[-150px] z-10" />
-			<div class="h-44 w-44 bg-neutral-800 rounded-full blur- absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[120px] z-10" />
+			<div class="h-56 w-56 bg-stone-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[40px] z-10" />
+			<div class="h-56 w-56 bg-stone-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-40px] translate-y-[-40px] z-10" />
+			<div class="h-56 w-56 bg-stone-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[40px] translate-y-[-80px] z-10" />
+			<div class="h-44 w-44 bg-stone-800 rounded-full blur-lg absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[-150px] z-10" />
+			<div class="h-44 w-44 bg-stone-800 rounded-full blur- absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[-15px] translate-y-[120px] z-10" />
 
 			<div class="h-[275px] w-[275px] bg-lime-300 rounded-full blur-xl absolute top-0 left-0 right-0 bottom-0 m-auto z-5 translate-x-[15px] translate-y-[15px] mix-blend-hard-light" />
 			<div class="h-[275px] w-[275px] bg-violet-300 rounded-full blur-xl absolute top-0 left-0 right-0 bottom-0 m-auto z-5 translate-x-[-15px] translate-y-[-15px] mix-blend-hard-light" /> 
-			<div class="h-[275px] w-[275px] bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
-			<div class="h-[275px] w-[275px] bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
+			<div class="h-[275px] w-[275px] bg-stone-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
+			<div class="h-[275px] w-[275px] bg-stone-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto z-10" />
 
 
-			<div class="h-24 w-24 bg-neutral-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[250px] translate-y-[-125px]" />
+			<div class="h-24 w-24 bg-stone-800 rounded-full blur-sm absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[250px] translate-y-[-125px]" />
 
-			<div class="h-12 w-12 bg-neutral-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[300px] translate-y-[-200px]" />
+			<div class="h-12 w-12 bg-stone-800 rounded-full blur-xs absolute top-0 left-0 right-0 bottom-0 m-auto translate-x-[300px] translate-y-[-200px]" />
 		</div> -->
 
-		<div class="grid grid-cols-12 col-span-12 col-start-2 col-end-12 relative bg-transparent py-12 gap-y-0.5">
-			<div class="col-span-4 h-6 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-300" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-red-300 via-orange-300 to-yellow-200" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-300" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-300" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-red-300 via-orange-300 to-yellow-200" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-yellow-200 via-orange-300 to-red-300" />
+		<div class="grid grid-cols-12 col-span-12 relative bg-transparent py-16 gap-y-0.5">
+			<div class="col-span-4 h-3 bg-gradient-to-r from-yellow-200 via-orange-300 to-amber-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-yellow-200 via-orange-300 to-amber-300" />
+			
+			<div class="col-span-4 h-3 bg-gradient-to-r from-yellow-200 via-orange-300 to-amber-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-yellow-200 via-orange-300 to-amber-300" />
 
-			<div class="col-span-4 h-6 bg-gradient-to-r from-lime-200 via-green-300 to-teal-300" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-teal-300 via-green-300 to-lime-200" />
-			<div class="col-span-4 h-6 bg-gradient-to-r from-lime-200 via-green-300 to-teal-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-lime-200 via-green-300 to-emerald-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-emerald-300 via-green-300 to-lime-200" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-lime-200 via-green-300 to-emerald-300" />
+
+			<div class="col-span-4 h-3 bg-gradient-to-r from-lime-200 via-green-300 to-emerald-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-emerald-300 via-green-300 to-lime-200" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-lime-200 via-green-300 to-emerald-300" />
+
+			<div class="col-span-4 h-3 bg-gradient-to-r from-sky-300 via-teal-200 to-cyan-300 " />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-cyan-300 via-teal-200 to-sky-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-sky-300 via-teal-200 to-cyan-300" />
+
+			<div class="col-span-4 h-3 bg-gradient-to-r from-sky-300 via-teal-200 to-cyan-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-cyan-300 via-teal-200 to-sky-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-sky-300 via-teal-200 to-cyan-300" />
+
+			<div class="col-span-4 h-3 bg-gradient-to-r from-blue-300 via-indigo-200 to-violet-300 " />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-violet-300 via-indigo-200 to-blue-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-blue-300 via-indigo-200 to-violet-300" />
+
+			<div class="col-span-4 h-3 bg-gradient-to-r from-blue-300 via-indigo-200 to-violet-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-violet-300 via-indigo-200 to-blue-300" />
+			<div class="col-span-4 h-3 bg-gradient-to-r from-blue-300 via-indigo-200 to-violet-300" />
 		</div>	
 	</main>
 </Layout>
