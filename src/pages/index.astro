@@ -2,22 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import { Hero } from '../scenes/hero';
 import { Balls } from '../scenes/balls';
+import bg from '../assets/bg.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
-	<div id="hero" class="absolute inset-0 w-full h-full z-1 mix-blend-lighten opacity-60">
+	<div id="hero" class="absolute inset-0 w-full h-full z-1 opacity-50">
 		<Balls client:only="react" />
 	</div>
 
-	<div class="grid grid-cols-12 p-16 py-6 relative bg-stone-950 mx-auto">
-		<!-- <div class="absolute inset-0 noise z-0" /> -->
+	<div class="grid grid-cols-12 p-16 py-8 relative bg-gradient-to-b from-stone-700 to-black mx-auto">
+		<Image src={bg} alt="background" class="absolute inset-0 w-full h-full filter contrast-250 brightness-100 z-0" />
 
 		<div class="flex flex-col justify-start items-start col-span-12 relative">
-			<h1 class="text-[12rem] max-w-xs text-right foreground z-10 leading-[0.9] text-amber-400">unusual undertaking</h1>
+			<h1 class="text-[3rem] max-w-xs foreground z-10 leading-[1.2] text-[#FFBF00]">unusual undertaking</h1>
 		</div>
 
 		<div class="flex flex-col justify-start place-items-baseline items-start col-span-12 relative">
-			<h2 class="text-[3rem] leading-[1.2] foreground z-10 mt-12 text-amber-400 max-w-5xl">a studio specializing in building software, game dev, and art</h2>
+			<h2 class="text-[3rem] leading-[1.2] foreground z-10 mt-12 text-[#FFBF00] max-w-4xl">a studio blending art + engineering to create digital things that people love</h2>
 		</div>
 
 		<!-- <div class="flex flex-col justify-start items-start col-span-12 mt-3 relative h-[2px] bg-stone-600" /> -->
@@ -46,9 +48,9 @@ import { Balls } from '../scenes/balls';
 
 		<!-- <div class="grid grid-cols-4 col-span-12 relative bg-transparent py-16 gap-y-0.5 scale-100 rotate-[5deg] skew-x-[10deg]"> -->
 		<div class="grid grid-cols-4 col-span-12 relative bg-transparent py-16 gap-y-0.5">
-			<div class="col-span-4 h-96 bg-stone-950" />
-			<div class="col-span-4 h-96 bg-stone-950" />
-			<div class="col-span-4 h-96 bg-stone-950" />
+			<div class="col-span-4 h-96 " />
+			<div class="col-span-4 h-96 " />
+			<div class="col-span-4 h-96" />
 		</div>	
 	</main>
 </Layout>
