@@ -6,7 +6,7 @@ import { Autofocus, ChromaticAberration, EffectComposer, Noise, Scanline, DotScr
 import { BlendFunction } from 'postprocessing'
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
 
-const positions = Array.from({ length: 250 }, (i) => [
+const positions = Array.from({ length: 200 }, () => [
     MathUtils.randFloatSpread(17),
     MathUtils.randFloatSpread(20),
     MathUtils.randFloatSpread(15),
@@ -23,7 +23,7 @@ export function Balls() {
                 <Suspense fallback={null}>
                     <Physics>
                         <PerformanceMonitor onDecline={() => degrade(true)} />
-                        <ambientLight intensity={4} color="#0092FF" />
+                        <ambientLight intensity={5} color="#0092FF" />
                         <Float floatIntensity={0.05} speed={0.5}>
                             <group>
                                 {positions.map((position, i) => {
@@ -54,7 +54,7 @@ export function Balls() {
                                 })}
                             </group>
                         </Float>
-                        <Environment preset="warehouse" resolution={256} background backgroundIntensity={0.75} backgroundBlurriness={0.2} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.75} />
+                        <Environment preset="warehouse" backgroundRotation={[75, 75, 75]} resolution={256} background backgroundIntensity={0.75} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.75} />
                         <EffectComposer>
                             <Autofocus focusRange={0} focalLength={0.02} bokehScale={4} width={1024} height={1024} mouse manual />
                             <ChromaticAberration intensity={0.05} blur={false} />
