@@ -16,11 +16,11 @@ export function Balls() {
     const [perfSucks, degrade] = useState(false)
     return (
         <div id="canvas-container" className="w-full h-full">
-            <Canvas
-                dpr={[1, perfSucks ? 1.5 : 2]}
-                camera={{ position: [0, 0, 15], fov: 25, near: 0.1, far: 1000 }}
-            >
-                <Suspense fallback={null}>
+            <Suspense fallback={null}>
+                <Canvas
+                    dpr={[1, perfSucks ? 1.5 : 2]}
+                    camera={{ position: [0, 0, 15], fov: 25, near: 0.1, far: 1000 }}
+                >
                     <Physics>
                         <PerformanceMonitor onDecline={() => degrade(true)} />
                         <ambientLight intensity={5} color="#0092FF" />
@@ -65,8 +65,8 @@ export function Balls() {
                         </EffectComposer>
                         <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.075} />
                     </Physics>
-                </Suspense>
-            </Canvas>
+                </Canvas>
+            </Suspense>
         </div>
     )
 }
