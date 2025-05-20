@@ -2,7 +2,7 @@ import { MathUtils, Vector3 } from 'three'
 import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Float, Environment, MeshDistortMaterial, PerformanceMonitor } from '@react-three/drei'
-import { Autofocus, ChromaticAberration, EffectComposer, Noise, Scanline, DotScreen, LensFlare } from '@react-three/postprocessing'
+import { Autofocus, ChromaticAberration, EffectComposer, Noise, Scanline, DotScreen } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
 
@@ -28,9 +28,9 @@ export function Balls() {
                             <group>
                                 {positions.map((position, i) => {
                                     // get a random speed between 0.1-0.35
-                                    const speed = MathUtils.randFloatSpread(0.25) + 0.1
+                                    const speed = MathUtils.randFloatSpread(0.25) + 0.25
                                     // get a random distort between 0.5-1.25
-                                    const distort = MathUtils.randFloatSpread(0.75) + 0.5
+                                    const distort = MathUtils.randFloatSpread(0.75) + 0.75
                                     return (
                                         <RigidBody colliders={"hull"} restitution={1} gravityScale={0}>
                                             <mesh key={i} position={new Vector3(position[0], position[1], position[2])}>
@@ -62,8 +62,9 @@ export function Balls() {
                             <Noise opacity={0.2} blendFunction={BlendFunction.LINEAR_BURN} />
                             <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
                             <DotScreen opacity={0.2} blendFunction={BlendFunction.MULTIPLY} />
+                            {/* <HueSaturation hue={0} saturation={-1} /> */}
                         </EffectComposer>
-                        <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.1} />
+                        <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.25} />
                     </Physics>
                 </Canvas>
             </Suspense>
