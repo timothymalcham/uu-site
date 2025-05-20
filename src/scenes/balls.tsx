@@ -24,7 +24,7 @@ export function Balls() {
                     <Physics>
                         <PerformanceMonitor onDecline={() => degrade(true)} />
                         <ambientLight intensity={5} color="#0092FF" />
-                        <Float floatIntensity={0.05} speed={0.5}>
+                        <Float floatIntensity={0.025} speed={0.25}>
                             <group>
                                 {positions.map((position, i) => {
                                     // get a random speed between 0.1-0.35
@@ -32,7 +32,7 @@ export function Balls() {
                                     // get a random distort between 0.5-1.25
                                     const distort = MathUtils.randFloatSpread(0.75) + 0.5
                                     return (
-                                        <RigidBody colliders={"hull"} restitution={2} gravityScale={0}>
+                                        <RigidBody colliders={"hull"} restitution={1} gravityScale={0}>
                                             <mesh key={i} position={new Vector3(position[0], position[1], position[2])}>
                                                 <sphereGeometry args={[0.5, 64, 64]} />
                                                 <MeshDistortMaterial
@@ -54,16 +54,16 @@ export function Balls() {
                                 })}
                             </group>
                         </Float>
-                        <Environment preset="warehouse" backgroundRotation={[75, 75, 75]} resolution={256} background backgroundIntensity={0.75} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.75} />
+                        <Environment preset="lobby" backgroundRotation={[80, 80, 80]} resolution={256} background backgroundIntensity={0.75} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.75} />
                         <EffectComposer>
-                            <Autofocus focusRange={0} focalLength={0.02} bokehScale={4} width={1024} height={1024} mouse manual />
-                            <ChromaticAberration intensity={0.05} blur={false} />
+                            <Autofocus focusRange={0} focalLength={0.01} bokehScale={7} width={1024} height={1024} mouse manual />
+                            <ChromaticAberration intensity={0.25} blur={false} />
                             {/* <Bloom mipmapBlur luminanceThreshold={0.15} intensity={0.05} /> */}
                             <Noise opacity={0.2} blendFunction={BlendFunction.LINEAR_BURN} />
                             <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
-                            <DotScreen opacity={0.15} blendFunction={BlendFunction.MULTIPLY} />
+                            <DotScreen opacity={0.2} blendFunction={BlendFunction.MULTIPLY} />
                         </EffectComposer>
-                        <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.075} />
+                        <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.1} />
                     </Physics>
                 </Canvas>
             </Suspense>
