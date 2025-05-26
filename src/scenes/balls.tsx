@@ -6,7 +6,12 @@ import { Autofocus, ChromaticAberration, EffectComposer, Noise, Scanline, DotScr
 import { BlendFunction } from 'postprocessing'
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
 
-const positions = Array.from({ length: 250 }, () => [
+// Detect mobile devices
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+
+const sphereSegments = isMobile ? 16 : 32
+
+const positions = Array.from({ length: 200 }, () => [
     MathUtils.randFloatSpread(17),
     MathUtils.randFloatSpread(20),
     MathUtils.randFloatSpread(15),
@@ -30,7 +35,7 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
             <Suspense fallback={null}>
                 <Canvas
                     dpr={[1, perfSucks ? 1.5 : 2]}
-                    camera={{ position: [0, 0, 15], fov: 15, near: 0.1, far: 1000 }}
+                    camera={{ position: [0, 0, 15], fov: isMobile ? 50 : 15, near: 0.1, far: 1000 }}
                     onCreated={({ gl, scene, camera }) => {
                         // Compile shaders
                         gl.compile(scene, camera)
@@ -58,7 +63,7 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                                     return (
                                         <RigidBody key={i} colliders="hull" restitution={1} gravityScale={0}>
                                             <mesh position={new Vector3(position[0], position[1], position[2])}>
-                                                <sphereGeometry args={[0.5, 32, 32]} />
+                                                <sphereGeometry args={[0.5, sphereSegments, sphereSegments]} />
                                                 <MeshDistortMaterial
                                                     speed={speed}
                                                     distort={distort}
