@@ -14,13 +14,16 @@ const positions = Array.from({ length: 250 }, () => [
 
 export function Balls({ onLoad }: { onLoad?: () => void }) {
     const [perfSucks, degrade] = useState(false)
-    const [isReady, setIsReady] = useState(false)
+    const [sceneReady, setSceneReady] = useState(false)
+    const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     useEffect(() => {
-        if (isReady && onLoad) {
-            onLoad()
+        // Only call onLoad when both scene is created AND initial frame is rendered
+        if (sceneReady && assetsLoaded && onLoad) {
+            // Small delay to ensure smooth first frame
+            setTimeout(() => onLoad(), 300)
         }
-    }, [isReady, onLoad])
+    }, [sceneReady, assetsLoaded, onLoad])
 
     return (
         <div id="canvas-container" className="w-full h-full">
@@ -28,11 +31,23 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                 <Canvas
                     dpr={[1, perfSucks ? 1.5 : 2]}
                     camera={{ position: [0, 0, 15], fov: 15, near: 0.1, far: 1000 }}
-                    onCreated={() => setIsReady(true)}
+                    onCreated={({ gl, scene, camera }) => {
+                        // Compile shaders
+                        gl.compile(scene, camera)
+                        setSceneReady(true)
+
+                        // Wait for first render frame
+                        requestAnimationFrame(() => {
+                            setAssetsLoaded(true)
+                        })
+                    }}
                 >
                     <Physics>
                         <PerformanceMonitor onDecline={() => degrade(true)} />
-                        <ambientLight intensity={10} color="#FFBB00" />
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[10, 10, 5]} intensity={1} color="#FFBB00" />
+                        <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#FF6B00" />
+                        <pointLight position={[0, 0, 0]} intensity={2} color="#FFBB00" />
                         <Float floatIntensity={0.025} speed={0.025}>
                             <group>
                                 {positions.map((position, i) => {
@@ -64,10 +79,10 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                         </Float>
                         <Environment preset="warehouse" backgroundRotation={[220, 60, 60]} resolution={128} background backgroundIntensity={0.25} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.25} />
                         <EffectComposer>
-                            <Autofocus focusRange={0} focalLength={0.1} bokehScale={3} width={1080} height={1080} mouse manual />
-                            <ChromaticAberration intensity={1} blur={false} />
+                            {/* <Autofocus focusRange={0} focalLength={0.1} bokehScale={3} width={1080} height={1080} mouse manual /> */}
+                            <ChromaticAberration intensity={5} blur={false} />
                             <Noise opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
-                            <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
+                            {/* <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} /> */}
                             <DotScreen opacity={0.25} blendFunction={BlendFunction.MULTIPLY} />
                         </EffectComposer>
                         <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.05} />
