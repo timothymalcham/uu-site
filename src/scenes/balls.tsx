@@ -35,7 +35,7 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
             <Suspense fallback={null}>
                 <Canvas
                     dpr={[1, perfSucks ? 1.5 : 2]}
-                    camera={{ position: [0, 0, 15], fov: isMobile ? 50 : 15, near: 0.1, far: 1000 }}
+                    camera={{ position: [0, 0, 15], fov: isMobile ? 50 : 20, near: 0.1, far: 1000 }}
                     onCreated={({ gl, scene, camera }) => {
                         // Compile shaders
                         gl.compile(scene, camera)
