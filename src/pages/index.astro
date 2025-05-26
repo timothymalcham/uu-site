@@ -6,24 +6,27 @@ import portfolioImg01 from '../assets/village-app.jpg';
 import portfolioImg02 from '../assets/dino-mercs.jpg';
 import portfolioImg03 from '../assets/untitled-1.jpg';
 import portfolioImg04 from '../assets/gaming-site.jpg';
-import portfolioImg05 from '../assets/quiz.jpg';
-import portfolioImg06 from '../assets/dino-mercs-2.jpg';
-import portfolioImg07 from '../assets/dino-mercs-3.jpg';
+import portfolioImg05 from '../assets/gaming-site-2.jpg';
+import portfolioImg06 from '../assets/quiz.jpg';
+import portfolioImg07 from '../assets/dino-mercs-2.jpg';
+import portfolioImg08 from '../assets/dino-mercs-3.jpg';
+import portfolioImg09 from '../assets/bourbon.jpg';
+import portfolioImg10 from '../assets/wildflower.jpg';
 import { Image } from 'astro:assets';
 ---
 
 <Layout>
 	<SceneLoader client:only="react" />
 
-	<div class="grid grid-cols-12 p-16 py-10 relative mx-auto">
+	<div class="grid grid-cols-12 p-8 lg:p-16 lg:py-10 relative mx-auto">
 		<!-- <Image src={bg} alt="background" class="absolute inset-0 w-full h-full filter contrast-250 brightness-100 mix-blend-overlay z-0" /> -->
 
-		<div class="grid grid-cols-12 col-span-12 z-100 mb-24 mt-24">
-			<div class="col-span-6">
-				<h1 class="text-8xl max-w-xs foreground z-10 leading-[0.9] text-[#ffbb00]">unusual undertaking</h1>
+		<div class="grid grid-cols-12 col-span-12 z-100 mb-24 lg:mb-44 lg:mt-24 mt-12">
+			<div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0">
+				<h1 class="text-7xl lg:text-8xl max-w-xs foreground z-10 leading-[0.9] text-[#ffbb00]">unusual undertaking</h1>
 			</div>
 
-			<div class="col-span-6">
+			<div class="col-span-12 lg:col-span-6">
 				<h2 class="text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl mb-12">A studio blending art + engineering to create digital things that people love</h2>
 			
 				<h3 class="text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl mb-12">
@@ -31,7 +34,7 @@ import { Image } from 'astro:assets';
 				</h3>
 
 				<p class="text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl">
-					Specializing in: <br/>Landing pages & marketing sites, full-stack web development, cross-platform mobile apps, game prototyping, creative coding projects, and more.
+					Specializing in: <br/>Landing pages & marketing sites, full-stack web apps, iOS & Android mobile apps, game prototypes, and creative coding projects
 				</p>
 			</div>
 		</div>
@@ -41,8 +44,11 @@ import { Image } from 'astro:assets';
 			<div class="break-inside-avoid mb-4">
 				<Image src={portfolioImg01} alt="portfolio" class="w-full h-auto rounded-3xl min-h-96" />
 			</div>
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg02} alt="portfolio" class="w-full h-auto rounded-3xl" />
+			<div class="break-inside-avoid mb-4">	
+				<Image src={portfolioImg09} alt="portfolio" class="w-full h-auto rounded-3xl" />
+			</div>
+			<div class="break-inside-avoid mb-4">	
+				<Image src={portfolioImg10} alt="portfolio" class="w-full h-auto rounded-3xl" />
 			</div>
 			<div class="break-inside-avoid mb-4">	
 				<Image src={portfolioImg03} alt="portfolio" class="w-full h-auto rounded-3xl" />
@@ -56,8 +62,14 @@ import { Image } from 'astro:assets';
 			<div class="break-inside-avoid mb-4">
 				<Image src={portfolioImg06} alt="portfolio" class="w-full h-auto rounded-3xl" />
 			</div>
+			<div class="break-inside-avoid mb-4">
+				<Image src={portfolioImg02} alt="portfolio" class="w-full h-auto rounded-3xl" />
+			</div>
 			<div class="break-inside-avoid mb-4">	
 				<Image src={portfolioImg07} alt="portfolio" class="w-full h-auto rounded-3xl" />
+			</div>
+			<div class="break-inside-avoid mb-4">	
+				<Image src={portfolioImg08} alt="portfolio" class="w-full h-auto rounded-3xl" />
 			</div>
 		</div>
 	</div>
