@@ -16,3 +16,10 @@
 .animate-fade-in {
     animation: fade-in 0.8s ease-out 0.3s forwards;
 }
+
+/* Ensure images maintain aspect ratio */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
