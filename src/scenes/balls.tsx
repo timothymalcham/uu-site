@@ -11,10 +11,10 @@ const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
 
 const sphereSegments = isMobile ? 16 : 32
 
-const positions = Array.from({ length: 200 }, () => [
-    MathUtils.randFloatSpread(17),
-    MathUtils.randFloatSpread(20),
+const positions = Array.from({ length: 125 }, () => [
+    MathUtils.randFloatSpread(12),
     MathUtils.randFloatSpread(15),
+    MathUtils.randFloatSpread(12),
 ])
 
 export function Balls({ onLoad }: { onLoad?: () => void }) {
@@ -82,12 +82,12 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                                 })}
                             </group>
                         </Float>
-                        <Environment preset="warehouse" backgroundRotation={[220, 60, 60]} resolution={128} background backgroundIntensity={0.25} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.25} />
+                        <Environment preset="warehouse" backgroundRotation={[0, 100, 0]} resolution={128} background backgroundIntensity={0.5} backgroundBlurriness={0.25} frames={perfSucks ? 1 : Infinity} environmentIntensity={0.25} />
                         <EffectComposer>
                             {/* <Autofocus focusRange={0} focalLength={0.1} bokehScale={3} width={1080} height={1080} mouse manual /> */}
                             <ChromaticAberration intensity={5} blur={false} />
                             <Noise opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
-                            {/* <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} /> */}
+                            <Scanline opacity={0.25} blendFunction={BlendFunction.LINEAR_BURN} />
                             <DotScreen opacity={0.25} blendFunction={BlendFunction.MULTIPLY} />
                         </EffectComposer>
                         <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.05} />
