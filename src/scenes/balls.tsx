@@ -2,7 +2,7 @@ import { MathUtils, Vector3 } from 'three'
 import { Suspense, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Float, Environment, MeshDistortMaterial, PerformanceMonitor } from '@react-three/drei'
-import { Autofocus, ChromaticAberration, EffectComposer, Noise, Scanline, DotScreen, HueSaturation, Bloom } from '@react-three/postprocessing'
+import { ChromaticAberration, EffectComposer, Noise, Scanline, DotScreen, HueSaturation, Bloom } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
 
