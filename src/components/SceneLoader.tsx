@@ -23,7 +23,7 @@ export function SceneLoader() {
             >
                 <div className="text-[#FFBF00] text-4xl font-['Bluu_Next'] animate-pulse">loading…</div>
             </div>
-            <div className="absolute inset-0 w-full h-full z-1 opacity-40">
+            <div className="absolute inset-0 w-full h-full z-1 opacity-10">
                 <Balls onLoad={handleSceneLoad} />
             </div>
         </>

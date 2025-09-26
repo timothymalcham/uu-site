@@ -23,10 +23,10 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
     const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     useEffect(() => {
-        // Only call onLoad when both scene is created AND initial frame is rendered
+        // Only call onLoad when both the scene is created AND initial frame is rendered
         if (sceneReady && assetsLoaded && onLoad) {
             // Small delay to ensure smooth first frame
-            setTimeout(() => onLoad(), 300)
+            setTimeout(() => onLoad(), 2000)
         }
     }, [sceneReady, assetsLoaded, onLoad])
 
@@ -48,7 +48,7 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                     }}
                 >
                     <Physics>
-                        <PerformanceMonitor onDecline={() => degrade(true)} />
+                        {/*<PerformanceMonitor onDecline={() => degrade(true)} />*/}
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[10, 10, 5]} intensity={1} color="#FFBB00" />
                         <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#FF6B00" />
@@ -57,7 +57,7 @@ export function Balls({ onLoad }: { onLoad?: () => void }) {
                             <group>
                                 {positions.map((position, i) => {
                                     // get a random speed between 0.1-0.35
-                                    const speed = MathUtils.randFloatSpread(0.25) + 0.5
+                                    const speed = MathUtils.randFloatSpread(0.25) + 0.01
                                     // get a random distort between 0.5-1.25
                                     const distort = MathUtils.randFloatSpread(0.75) + 1
                                     return (

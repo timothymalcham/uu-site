@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { SceneLoader } from '../components/SceneLoader';
-import bg from '../assets/bg.jpg';
+import {SceneLoader} from '../components/SceneLoader';
 import portfolioImg01 from '../assets/village-app.jpg';
 import portfolioImg02 from '../assets/dino-mercs.jpg';
 import portfolioImg03 from '../assets/untitled-1.jpg';
@@ -12,72 +11,146 @@ import portfolioImg07 from '../assets/dino-mercs-2.jpg';
 import portfolioImg08 from '../assets/dino-mercs-3.jpg';
 import portfolioImg09 from '../assets/bourbon.jpg';
 import portfolioImg10 from '../assets/wildflower.jpg';
-import { Image } from 'astro:assets';
+import {Image} from 'astro:assets';
+import Plasma from "../components/ui/plasma";
 ---
 
 <Layout>
-	<SceneLoader client:only="react" />
+    <Plasma
+            color="#7b3306"
+            speed={0.125}
+            direction="reverse"
+            scale={0.75}
+            opacity={1}
+            mouseInteractive={false}
+            client:load
+    />
+    <div class="grid grid-cols-12 relative mx-auto opacity-0 animate-fade-in z-100">
 
-	<div class="grid grid-cols-12 p-8 lg:p-16 lg:py-10 relative mx-auto opacity-0 animate-fade-in z-100">
-		<!-- <Image src={bg} alt="background" class="absolute inset-0 w-full h-full filter contrast-250 brightness-100 mix-blend-overlay z-0" /> -->
+        <div class="col-span-5 relative">
+            <h1 class="text-[6.5vw] z-10 leading-[0.9] text-[#ffbb00] sticky top-0 px-8 pt-2 pb-24">unusual
+                undertaking</h1>
+            <h2 class="text-[1vw] z-10 leading-[0.9] text-[#ffbb00] px-8 pt-2 fixed bottom-8 left-2">a digital
+                studio</h2>
+            <a href="mailto:email@unusualundertaking.com"
+               class="text-[1vw] z-10 leading-[0.9] text-[#ffbb00] px-8 pt-2 fixed bottom-8 left-[22vw]">email@unusualundertaking.com</a>
+        </div>
 
-		<div class="grid grid-cols-12 col-span-12 z-100 mb-24 lg:mb-44 lg:mt-24 mt-12">
-			<div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0">
-				<h1 class="text-5xl lg:text-8xl max-w-xs foreground z-10 leading-[0.9] text-[#ffbb00]">unusual undertaking</h1>
-			</div>
+        <div class="col-span-7 bg-white opacity-90 p-12 gap-12">
+            <div class="grid grid-cols-12 pb-48 pt-3 border-t border-stone-500">
+                <div class="col-span-5">
+                    <h3 class="text-lg text-stone-600">VISION</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">Blend art + design + engineering to create digital
+                        things that people love.</h2>
+                </div>
+            </div>
 
-			<div class="col-span-12 lg:col-span-6">
-				<h2 class="text-lg lg:text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl mb-12">A studio blending art + engineering to create digital things that people love</h2>
-			
-				<h3 class="text-lg lg:text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl mb-12">
-					Available for new projects:<br/><a href="mailto:email@unusualundertaking.com" class="border-b border-[#FFBF00] hover:text-[#FFBF00]">email@unusualundertaking.com</a>
-				</h3>
+            <div class="grid grid-cols-12 pt-3 pb-48 border-t border-stone-500">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">SPECIALTIES</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">Designing & developing: full-stack web apps,
+                        cross-platform mobile apps, landing pages, game prototypes, & creative coding projects.</h2>
+                </div>
+            </div>
 
-				<p class="text-lg lg:text-2xl leading-[1.3] foreground z-10 text-[#FFBF00] max-w-3xl">
-					Specializing in: <br/>Landing pages & marketing sites, full-stack web apps, iOS & Android mobile apps, game prototypes, and creative coding projects
-				</p>
-			</div>
-		</div>
+            <div class="grid grid-cols-12 pt-3 pb-48 border-t border-stone-500">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">SELECTED WORK</h3>
+                </div>
+                <div class="col-span-7">
+                </div>
+            </div>
 
-		{/* Img grid masonry style */}
-		<div class="columns-1 md:columns-2 lg:columns-3 gap-4 col-span-12 space-y-4 z-100 mb-44">
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg01} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">	
-				<Image src={portfolioImg09} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">	
-				<Image src={portfolioImg10} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">	
-				<Image src={portfolioImg03} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg04} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg05} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg06} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">
-				<Image src={portfolioImg02} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">	
-				<Image src={portfolioImg07} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-			<div class="break-inside-avoid mb-4">	
-				<Image src={portfolioImg08} alt="portfolio" class="w-full h-auto rounded-3xl" />
-			</div>
-		</div>
+            <div class="grid grid-cols-12 pt-3 pb-48">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">VILLAGE MANAGER</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">
+                        A cross-platform mobile app used to help manage rural, non-digital banking systems.
+                        Currently in the early phases of testing in a village in Malawi.
+                    </h2>
+                    <p class="font-mono text-xs text-stone-400 pt-4">Built with Expo + React Native + Convex.</p>
+                </div>
+            </div>
 
-		{/* Footer */}
-		<footer class="col-span-12 text-center py-8">
-			<p class="text-sm text-[#FFBF00]/60">
-				Copyright © {new Date().getFullYear()} Unusual Undertaking. All rights reserved.
-			</p>
-		</footer>
-	</div>
+            <div class="grid grid-cols-12 pt-3 pb-48">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">[TBA]</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">
+                        Partnering with a founder in the events industry to build a new web-based tool for event
+                        planners & coordinators,
+                        with a focus on enabling solo consultants/small teams to manage events, coordinate with vendors,
+                        & serve clients in an extremely efficient & effective way.
+                    </h2>
+                    <p class="font-mono text-xs text-stone-400 pt-4">Building with Tanstack Start + Convex.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 pt-3 pb-48">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">DINO MERCS</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">
+                        A roguelite deckbuilding game released on the Steam store and played by thousands of players
+                        around the world.
+                    </h2>
+                    <p class="font-mono text-xs text-stone-400 pt-4">Built with Unity.</p>
+                </div>
+                <div class="flex flex-col col-span-12 pt-12 gap-2">
+                    <div class="">
+                        <Image src={portfolioImg07} alt="portfolio" class="w-full"/>
+                    </div>
+                    <div class="">
+                        <Image src={portfolioImg02} alt="portfolio" class="w-full"/>
+                    </div>
+                    <div class="">
+                        <Image src={portfolioImg08} alt="portfolio" class="w-full"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 pt-3 pb-48">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">MORE COMING SOON…</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">
+                        Additional work samples available upon request.
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 pt-3 pb-48 border-t border-stone-500">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600">LET’S BUILD TOGETHER</h3>
+                </div>
+                <div class="col-span-7">
+                    <h2 class="z-10 text-sm text-stone-900 font-mono">
+                        Send an <a href="mailto:email@unusualundertaking.com" class="underline hover:text-[#7b3306]">email</a>
+                        with a brief summary of your project/idea/business and you’ll get a response back soon.
+                    </h2>
+                    <p class="font-mono text-xs text-stone-400 pt-4">Contact: email@unusualundertaking.com</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 pt-3 pb-48 border-t border-stone-500">
+                <div class="col-span-5">
+                    <h3 class="text-lg z-10 text-stone-600"></h3>
+                </div>
+                <div class="col-span-7">
+                    <p class="z-10 text-sm text-stone-900 font-mono">Copyright © {new Date().getFullYear()} Unusual
+                        Undertaking. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </Layout>
