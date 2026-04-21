@@ -1,6 +1,102 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00-40.mp4';
+import { cn } from '../lib/utils';
+
+const themeOptions = [
+    {
+        id: "aurora",
+        label: "Aurora",
+        classes: {
+            baseOverlay: "bg-purple-500/75",
+            secondaryOverlay: "bg-purple-100/50",
+            heading: "text-lime-300",
+            bodyText: "text-lime-300",
+            ctaText: "text-lime-200",
+            themeButton: "border-lime-300/70 text-lime-200",
+            themeMenu: "border-lime-300/50 bg-purple-950/90 text-lime-100",
+            themeMenuItem: "hover:bg-lime-300/15 focus-visible:bg-lime-300/20",
+            activeThemeMenuItem: "bg-lime-300/20 text-lime-200",
+        },
+    },
+    {
+        id: "thermal",
+        label: "Thermal",
+        classes: {
+            baseOverlay: "bg-yellow-500/75",
+            secondaryOverlay: "bg-yellow-100",
+            heading: "text-sky-400",
+            bodyText: "text-sky-200",
+            ctaText: "text-sky-200",
+            themeButton: "border-sky-300/70 text-sky-200",
+            themeMenu: "border-sky-300/50 bg-yellow-950/90 text-sky-200",
+            themeMenuItem: "hover:bg-sky-300/15 focus-visible:bg-sky-300/20",
+            activeThemeMenuItem: "bg-sky-300/20 text-sky-200",
+        },
+    },
+    {
+        id: "stone",
+        label: "Stone",
+        classes: {
+            baseOverlay: "bg-stone-100",
+            secondaryOverlay: "bg-stone-400/60",
+            heading: "text-stone-400",
+            bodyText: "text-stone-300",
+            ctaText: "text-stone-300",
+            themeButton: "border-stone-300/70 text-stone-100",
+            themeMenu: "border-stone-300/50 bg-stone-950/90 text-stone-100",
+            themeMenuItem: "hover:bg-stone-300/15 focus-visible:bg-stone-300/20",
+            activeThemeMenuItem: "bg-stone-300/20 text-stone-50",
+        },
+    },
+    {
+        id: "lunar",
+        label: "Lunar",
+        classes: {
+            baseOverlay: "bg-blue-500/75",
+            secondaryOverlay: "bg-blue-200/90",
+            heading: "text-amber-200",
+            bodyText: "text-amber-300",
+            ctaText: "text-amber-200",
+            themeButton: "border-amber-300/70 text-amber-200",
+            themeMenu: "border-amber-300/50 bg-purple-950/90 text-amber-100",
+            themeMenuItem: "hover:bg-amber-300/15 focus-visible:bg-amber-300/20",
+            activeThemeMenuItem: "bg-amber-300/20 text-amber-200",
+        },
+    },
+        {
+        id: "magma",
+        label: "Magma",
+        classes: {
+            baseOverlay: "bg-sky-500/75",
+            secondaryOverlay: "bg-orange-100/75",
+            heading: "text-orange-300",
+            bodyText: "text-orange-300",
+            ctaText: "text-orange-200",
+            themeButton: "border-orange-300/70 text-orange-200",
+            themeMenu: "border-orange-300/50 bg-purple-950/90 text-orange-100",
+            themeMenuItem: "hover:bg-orange-300/15 focus-visible:bg-orange-300/20",
+            activeThemeMenuItem: "bg-orange-300/20 text-orange-200",
+        },
+    },
+     {
+        id: "arctic",
+        label: "Arctic",
+        classes: {
+            baseOverlay: "bg-orange-500/75",
+            secondaryOverlay: "bg-blue-300",
+            heading: "text-cyan-300",
+            bodyText: "text-cyan-300",
+            ctaText: "text-cyan-200",
+            themeButton: "border-cyan-300/70 text-cyan-200",
+            themeMenu: "border-cyan-300/50 bg-purple-950/90 text-cyan-100",
+            themeMenuItem: "hover:bg-cyan-300/15 focus-visible:bg-cyan-300/20",
+            activeThemeMenuItem: "bg-cyan-300/20 text-cyan-200",
+        },
+    },
+];
+
+const initialTheme = themeOptions[0];
 ---
 
 <Layout>
@@ -14,27 +110,92 @@ import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00
         >
             <source src={homepageBackgroundVideo} type="video/mp4" />
         </video>
-        <div class="absolute inset-0 bg-purple-500/75 mix-blend-difference"></div>
-        <div class="absolute inset-0 bg-purple-100/50 mix-blend-overlay"></div>
+        <div
+            data-theme-target="baseOverlay"
+            class={cn("absolute inset-0 mix-blend-difference", initialTheme.classes.baseOverlay)}
+        ></div>
+        <div
+            data-theme-target="secondaryOverlay"
+            class={cn("absolute inset-0 mix-blend-overlay", initialTheme.classes.secondaryOverlay)}
+        ></div>
     </div>
     <main class="relative z-10 flex h-screen flex-col justify-between">
             <div class="flex justify-between items-center p-6">
-                <h2 class="text-sm font-mono text-lime-300 uppercase">A Studio</h2>
-                <p class="text-sm font-mono text-lime-300 uppercase">Video Games + Web Applications + Cross-Platform Apps.</p>
+                <h2
+                    data-theme-target="bodyText"
+                    class={cn("text-sm font-mono uppercase", initialTheme.classes.bodyText)}
+                >
+                    A Studio
+                </h2>
+                <p
+                    data-theme-target="bodyText"
+                    class={cn("text-sm font-mono uppercase", initialTheme.classes.bodyText)}
+                >
+                    Video Games + Web Applications + Cross-Platform Apps.
+                </p>
             </div>
             <div class="flex items-center justify-center text-base">
-                <h1 class="text-[16.5vw] -mt-16 font-display text-left leading-[0.8] text-lime-300">Unusual<br />Undertaking</h1>
+                <h1
+                    data-theme-target="heading"
+                    class={cn("text-[16.5vw] -mt-16 font-display text-left leading-[0.8]", initialTheme.classes.heading)}
+                >
+                    Unusual<br />Undertaking
+                </h1>
             </div>
+        <div class="fixed right-0 top-[20vh] z-30 -translate-y-1/2 font-mono">
+            <button
+                type="button"
+                id="theme-menu-button"
+                data-theme-target="themeButton"
+                class={cn("block transition-colors p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current", initialTheme.classes.themeButton)}
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="theme-menu"
+                aria-label="Change theme"
+            >
+                <span id="theme-menu-button-label" class="block text-sm font-mono uppercase leading-none [text-orientation:upright] [writing-mode:vertical-rl]">
+                    theme
+                </span>
+            </button>
+            <div
+                id="theme-menu"
+                data-theme-target="themeMenu"
+                class={cn("absolute right-full top-1/2 mr-2 hidden w-40 -translate-y-1/2", initialTheme.classes.themeMenu)}
+                aria-labelledby="theme-menu-button"
+            >
+                {themeOptions.map((theme) => (
+                    <button
+                        type="button"
+                        data-theme-option={theme.id}
+                        class={cn(
+                            "flex w-full items-center justify-between rounded px-3 py-2 text-left text-xs uppercase transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current",
+                            initialTheme.classes.themeMenuItem,
+                            theme.id === initialTheme.id && initialTheme.classes.activeThemeMenuItem,
+                        )}
+                        aria-pressed={theme.id === initialTheme.id ? "true" : "false"}
+                    >
+                        <span>{theme.label}</span>
+                        <span aria-hidden="true">{theme.id === initialTheme.id ? "+" : ""}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
         <section class="flex justify-between items-start p-6">
             <div>
-                <h3 class="text-sm font-mono text-lime-300 uppercase">Blending art + design + engineering to create digital things that people love.</h3>
+                <h3
+                    data-theme-target="bodyText"
+                    class={cn("text-sm font-mono uppercase", initialTheme.classes.bodyText)}
+                >
+                    Blending art + design + engineering to create digital things that people love.
+                </h3>
             </div>
 
             <div>
                 <button
                     type="button"
                     id="copy-email-button"
-                    class="inline-grid items-center text-sm font-mono text-lime-200 transition-opacity hover:scale-102 focus-visible:opacity-70 focus-visible:outline-none underline"
+                    data-theme-target="ctaText"
+                    class={cn("inline-grid items-center text-sm font-mono transition-opacity hover:scale-102 focus-visible:opacity-70 focus-visible:outline-none underline", initialTheme.classes.ctaText)}
                     aria-label="Copy email address"
                 >
                     <span
@@ -65,13 +226,155 @@ import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00
             </div>
         </section>
     </main>
-</Layout>
 
-<script is:inline>
+    <script id="homepage-theme-options" type="application/json" set:html={JSON.stringify(themeOptions)}></script>
+
+    <script is:inline>
+    const themeOptionsScript = document.getElementById("homepage-theme-options");
+    const themeMenuButton = document.getElementById("theme-menu-button");
+    const themeMenuButtonLabel = document.getElementById("theme-menu-button-label");
+    const themeMenu = document.getElementById("theme-menu");
+    const themeOptionButtons = Array.from(document.querySelectorAll("[data-theme-option]"));
+    const themeOptions = themeOptionsScript?.textContent
+        ? JSON.parse(themeOptionsScript.textContent)
+        : [];
+    const themesById = new Map(themeOptions.map((theme) => [theme.id, theme]));
+    const defaultThemeId = themeOptions[0]?.id;
+
     const video = document.getElementById("homepage-background-video");
     const copyEmailButton = document.getElementById("copy-email-button");
     const copyEmailDefault = document.getElementById("copy-email-default");
     const copyEmailFeedback = document.getElementById("copy-email-feedback");
+
+    if (
+        themeMenuButton instanceof HTMLButtonElement &&
+        themeMenuButtonLabel instanceof HTMLSpanElement &&
+        themeMenu instanceof HTMLDivElement &&
+        defaultThemeId
+    ) {
+        const splitClasses = (className) => className.split(/\s+/).filter(Boolean);
+        const targetClassKeys = [
+            "baseOverlay",
+            "secondaryOverlay",
+            "heading",
+            "bodyText",
+            "ctaText",
+            "themeButton",
+            "themeMenu",
+        ];
+        const optionClassKeys = ["themeMenuItem", "activeThemeMenuItem"];
+
+        const removeThemeClasses = (element, classKeys) => {
+            for (const theme of themeOptions) {
+                for (const classKey of classKeys) {
+                    const className = theme.classes[classKey];
+
+                    if (className) {
+                        element.classList.remove(...splitClasses(className));
+                    }
+                }
+            }
+        };
+
+        const setThemeMenuOpen = (isOpen) => {
+            themeMenu.classList.toggle("hidden", !isOpen);
+            themeMenuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        };
+
+        const storeTheme = (themeId) => {
+            try {
+                window.localStorage.setItem("uu-theme", themeId);
+            } catch {
+                return;
+            }
+        };
+
+        const readStoredTheme = () => {
+            try {
+                return window.localStorage.getItem("uu-theme");
+            } catch {
+                return null;
+            }
+        };
+
+        const applyTheme = (themeId, shouldStore = true) => {
+            const theme = themesById.get(themeId) ?? themesById.get(defaultThemeId);
+
+            if (!theme) {
+                return;
+            }
+
+            for (const targetKey of targetClassKeys) {
+                const targets = document.querySelectorAll(`[data-theme-target="${targetKey}"]`);
+
+                for (const target of targets) {
+                    removeThemeClasses(target, [targetKey]);
+                    target.classList.add(...splitClasses(theme.classes[targetKey]));
+                }
+            }
+
+            for (const optionButton of themeOptionButtons) {
+                const optionId = optionButton.getAttribute("data-theme-option");
+                const isActive = optionId === theme.id;
+
+                removeThemeClasses(optionButton, optionClassKeys);
+                optionButton.classList.add(...splitClasses(theme.classes.themeMenuItem));
+
+                if (isActive) {
+                    optionButton.classList.add(...splitClasses(theme.classes.activeThemeMenuItem));
+                }
+
+                optionButton.setAttribute("aria-pressed", isActive ? "true" : "false");
+
+                const indicator = optionButton.querySelector("[aria-hidden='true']");
+
+                if (indicator) {
+                    indicator.textContent = isActive ? "+" : "";
+                }
+            }
+
+            themeMenuButton.setAttribute("aria-label", `Change theme. Current theme: ${theme.label}`);
+
+            if (shouldStore) {
+                storeTheme(theme.id);
+            }
+        };
+
+        themeMenuButton.addEventListener("click", () => {
+            setThemeMenuOpen(themeMenu.classList.contains("hidden"));
+        });
+
+        for (const optionButton of themeOptionButtons) {
+            optionButton.addEventListener("click", () => {
+                const themeId = optionButton.getAttribute("data-theme-option");
+
+                if (themeId) {
+                    applyTheme(themeId);
+                    setThemeMenuOpen(false);
+                    themeMenuButton.focus();
+                }
+            });
+        }
+
+        document.addEventListener("click", (event) => {
+            if (
+                event.target instanceof Node &&
+                !themeMenu.contains(event.target) &&
+                !themeMenuButton.contains(event.target)
+            ) {
+                setThemeMenuOpen(false);
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                setThemeMenuOpen(false);
+                themeMenuButton.focus();
+            }
+        });
+
+        applyTheme(readStoredTheme() ?? defaultThemeId, false);
+    }
 
     if (video instanceof HTMLVideoElement) {
         const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -192,4 +495,5 @@ import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00
             }
         });
     }
-</script>
+    </script>
+</Layout>
