@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00-40-keyframes-1.mp4';
+import homepageBackgroundVideo from '../assets/video/shader-lab-2026-04-20T13-00-40.mp4';
+import homepageBackgroundPoster from '../assets/video/shader-lab-2026-04-20T13-00-40-poster.jpg';
 import { cn } from '../lib/utils';
 
 const themeOptions = [
@@ -118,9 +119,11 @@ const initialTheme = themeOptions[0];
     <div class="fixed inset-0 overflow-hidden">
         <video
             id="homepage-background-video"
+            autoplay
             muted
             playsinline
             preload="auto"
+            poster={homepageBackgroundPoster.src}
             class="h-full w-full object-cover"
         >
             <source src={homepageBackgroundVideo} type="video/mp4" />
