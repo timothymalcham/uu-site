@@ -16,38 +16,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-This is a creative studio website built with Astro, React, and Three.js.
+This is a creative studio website built as a static Astro site. There is no UI framework: pages are `.astro` files and the little interactivity there is (light/dark toggle, copy-email button) lives in small `<script is:inline>` blocks next to the markup it drives.
 
 ### Tech Stack
 - **Astro** - Static site generator for routing and page structure
-- **React** - Interactive components and 3D scene management
-- **Three.js** (@react-three/fiber) - WebGL-based 3D graphics
-- **@react-three/rapier** - Physics simulation
-- **Tailwind CSS** - Styling with custom Vite plugin
+- **astro:assets** - `<Image>` for responsive, optimized images (uses sharp at build time)
+- **Tailwind CSS v4** - Styling with the Vite plugin
 - **TypeScript** - Type safety with strict configuration
 
 ### Key Patterns
 
-1. **Astro + React Integration**
-   - React components use `client:only="react"` directive for client-side rendering
-   - Astro handles static generation and component hydration
+1. **Pages**
+   - `src/pages/index.astro` - single-page homepage: hero, selected-work grid, contact footer
+   - Project data is a plain array in the homepage frontmatter, with images imported from `src/assets/`
+   - Layout is a 12-column grid (`grid-cols-12`) with hairline `border-ink` rules
 
-2. **3D Scene Structure**
-   - Scenes in `src/scenes/` export React components with Canvas setup
-   - Common pattern: OrbitControls, Environment lighting, post-processing effects
-   - Physics-based interactions using Rapier physics engine
-
-3. **Styling**
+2. **Styling**
    - Tailwind CSS with Vite plugin integration
-   - Custom Bluu Next font via @fontsource
-   - Yellow (#FFBF00) as primary accent color
-
-4. **Performance Considerations**
-   - 3D scenes include performance monitoring and adaptive quality
-   - Client-only rendering for heavy React/Three.js components
-   - Static generation for optimal loading performance
+   - Bluu Next (display) and Schibsted Grotesk (everything else) via @fontsource
+   - Color tokens in `src/styles/global.css`: `paper`, `ink`, `accent` (#FF3C52). Use them (`bg-paper`, `text-ink`, `text-accent`) instead of raw colors or the `dark:` variant, so the light/dark toggle keeps working
+   - Light/dark follows the system; a header toggle overrides it via `data-theme` on `<html>` (see `docs/redesign-plan.md`)
+   - The accent is too low-contrast for small text on the light ground; keep it to large type, rules and underlines
 
 ### Development Notes
 - No linting or testing framework configured
-- Modify 3D scenes carefully - they use complex shader materials and post-processing
+- The build ships no client JS bundles; keep it that way unless a feature truly needs one
 - When adding new pages, follow Astro's file-based routing in src/pages/

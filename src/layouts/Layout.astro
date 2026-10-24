@@ -1,6 +1,7 @@
 ---
 import "@fontsource/bluu-next";
-import "@fontsource/geist-mono"
+import "@fontsource/schibsted-grotesk/400.css";
+import "@fontsource/schibsted-grotesk/600.css";
 import "../styles/global.css";
 ---
 
@@ -12,8 +13,17 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Unusual Undertaking</title>
+		<script is:inline>
+			// Apply a saved light/dark choice before first paint so the page never flashes the wrong scheme.
+			try {
+				const savedScheme = localStorage.getItem("uu-color-scheme");
+				if (savedScheme === "light" || savedScheme === "dark") {
+					document.documentElement.dataset.theme = savedScheme;
+				}
+			} catch {}
+		</script>
 	</head>
-	<body class="min-h-screen text-stone-900 bg-stone-200 relative overflow-x-hidden selection:bg-transparent selection:text-stone-900">
+	<body class="min-h-screen overflow-x-hidden bg-paper font-sans text-ink antialiased selection:bg-accent selection:text-paper">
 		<slot />
 	</body>
 </html>
