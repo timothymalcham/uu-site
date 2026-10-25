@@ -20,15 +20,13 @@ This is a creative studio website built as a static Astro site. There is no UI f
 
 ### Tech Stack
 - **Astro** - Static site generator for routing and page structure
-- **astro:assets** - `<Image>` for responsive, optimized images (uses sharp at build time)
 - **Tailwind CSS v4** - Styling with the Vite plugin
 - **TypeScript** - Type safety with strict configuration
 
 ### Key Patterns
 
 1. **Pages**
-   - `src/pages/index.astro` - single-page homepage: hero, selected-work grid, contact footer
-   - Project data is a plain array in the homepage frontmatter, with images imported from `src/assets/`
+   - `src/pages/index.astro` - single-page homepage: hero and contact footer. The selected-work grid was removed until new projects are ready; the old version is in git history (commit 6394fe9) and used astro:assets `<Image>` with images from `src/assets/`
    - Layout is a 12-column grid (`grid-cols-12`) with hairline `border-ink` rules
 
 2. **Styling**

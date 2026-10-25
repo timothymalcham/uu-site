@@ -1,22 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import dinoMercs from '../assets/dino-mercs.jpg';
-import villageApp from '../assets/village-app.jpg';
-import wildflower from '../assets/wildflower.jpg';
-import bourbon from '../assets/bourbon.jpg';
-import quiz from '../assets/quiz.jpg';
-import gamingSite from '../assets/gaming-site.jpg';
-
-// Placeholder copy until the real project write-ups exist.
-const projects = [
-    { title: "Dino Mercs", discipline: "Game", summary: "Project summary to come.", image: dinoMercs },
-    { title: "Village Manager", discipline: "App", summary: "Project summary to come.", image: villageApp },
-    { title: "Wildflower", discipline: "Web", summary: "Project summary to come.", image: wildflower },
-    { title: "Bourbon", discipline: "Web", summary: "Project summary to come.", image: bourbon },
-    { title: "Quiz", discipline: "Web", summary: "Project summary to come.", image: quiz },
-    { title: "Gaming Site", discipline: "Web", summary: "Project summary to come.", image: gamingSite },
-];
 
 const colorSchemes = ["light", "dark"];
 const labelClass = "text-xs font-semibold uppercase tracking-wide";
@@ -55,43 +38,10 @@ const labelClass = "text-xs font-semibold uppercase tracking-wide";
             <p class="col-span-12 text-lg leading-snug sm:col-span-6 lg:col-span-5">
                 Blending art + design + engineering to create digital things that people love.
             </p>
-            <a
-                href="#work"
-                class:list={["col-span-12 self-end transition-colors hover:text-accent sm:col-span-3 sm:col-start-10 sm:text-right", labelClass]}
-            >
-                Selected work ↓
-            </a>
         </div>
     </section>
 
-    <section id="work" class="px-4 py-20 sm:px-6">
-        <div class="grid grid-cols-12 items-end gap-x-4 border-b border-ink pb-3 sm:gap-x-6">
-            <h2 class="col-span-9 font-display text-5xl leading-none sm:text-7xl">Selected work</h2>
-            <span class:list={["col-span-3 text-right", labelClass]}>({projects.length})</span>
-        </div>
-
-        <ol class="mt-8 grid grid-cols-12 gap-x-4 gap-y-14 sm:gap-x-6">
-            {projects.map((project, i) => (
-                <li class="col-span-12 sm:col-span-6 lg:col-span-4">
-                    <Image
-                        src={project.image}
-                        alt={`Screenshot of ${project.title}`}
-                        widths={[480, 800, 1200]}
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        class="aspect-[4/3] w-full object-cover"
-                    />
-                    <div class="mt-3 grid grid-cols-[2.5rem_1fr_auto] gap-x-2 border-t border-ink pt-2">
-                        <span class="text-sm font-semibold">{String(i + 1).padStart(2, "0")}</span>
-                        <h3 class="text-sm font-semibold">{project.title}</h3>
-                        <span class={labelClass}>{project.discipline}</span>
-                        <p class="col-span-2 col-start-2 mt-1 text-sm opacity-70">{project.summary}</p>
-                    </div>
-                </li>
-            ))}
-        </ol>
-    </section>
-
-    <footer class="px-4 pb-6 sm:px-6">
+    <footer class="px-4 pt-20 pb-6 sm:px-6">
         <div class="grid grid-cols-12 gap-x-4 gap-y-4 border-t border-ink pt-3 sm:gap-x-6">
             <p class:list={["col-span-12 sm:col-span-3", labelClass]}>Contact</p>
             <div class="col-span-12 sm:col-span-9">
