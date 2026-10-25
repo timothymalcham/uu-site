@@ -1,0 +1,23 @@
+src/pages/index.astro
+  s_1538278205b9d0::t_22102912a2093a 44
+CLAUDE.md
+  s_1538278205b9d0::t_a658b299cd3f3b 29
+docs/redesign-plan.md
+  s_1538278205b9d0::t_a658b299cd3f3b 7,12,41-42,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7b194d61d65284fd1012ee02bf3840e6c2860ada",
+  "prompts": {},
+  "sessions": {
+    "s_1538278205b9d0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eaa8894c-1743-4f43-b530-b340e032f422",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Timothy Malcham <timothymalcham@gmail.com>"
+    }
+  }
+}
