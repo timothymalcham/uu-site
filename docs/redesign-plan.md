@@ -4,12 +4,12 @@
 
 | Area   | Decision |
 | ------ | -------- |
-| Scope  | Single page: hero + selected-work grid + contact footer |
+| Scope  | Single page: hero + contact footer. The selected-work grid is removed for now and comes back with new projects |
 | Layout | Editorial Swiss grid: 12 columns, hard alignment, oversized display type breaking the grid, small labels in corners |
 | Type   | **Bluu Next** for display (hero, section titles, email). **Schibsted Grotesk** for everything else; Geist Mono is dropped |
 | Color  | Ink `#151311` on paper `#F2EEE6`; accent `#FF3C52` (50/50 blend of vermilion and hot pink) |
 | Modes  | Light/dark follows the system by default; a Light / Dark toggle in the header overrides it and is remembered |
-| Copy   | Placeholder titles/captions for projects; real copy filled in later |
+| Copy   | Project copy comes with the new work |
 
 ### Accent contrast
 
@@ -37,20 +37,10 @@ used for large type, rules, underlines and selection, never small text.
 - [x] Footer with copy-email button
 - [x] Responsive pass (375 / 820 / 1440)
 - [x] Data-request page moved onto the new tokens
-- [ ] Real project copy (titles, summaries, years, links)
 - [x] Remove unused 3D deps, the React integration, shadcn scaffolding and unused assets
-
-## Placeholder projects
-
-| #  | Title (placeholder) | Discipline | Image |
-| -- | ------------------- | ---------- | ----- |
-| 01 | Dino Mercs          | Game       | `dino-mercs.jpg` |
-| 02 | Village Manager     | App        | `village-app.jpg` |
-| 03 | Wildflower          | Web        | `wildflower.jpg` |
-| 04 | Bourbon             | Web        | `bourbon.jpg` |
-| 05 | Quiz                | Web        | `quiz.jpg` |
-| 06 | Gaming Site         | Web        | `gaming-site.jpg` |
+- [x] Remove the selected-work grid until new projects are ready
+- [ ] Add the new work (grid layout and `<Image>` usage are in commit 6394fe9)
 
 ## Open questions
 
-- Should projects link anywhere (live site, store page), or stay image + caption only?
+- When the new work goes in: should projects link anywhere (live site, store page), or stay image + caption only?
