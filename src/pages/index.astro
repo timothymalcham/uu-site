@@ -1,26 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 const colorSchemes = ["light", "dark"];
 const labelClass = "text-xs font-semibold uppercase tracking-wide";
 ---
 
 <Layout>
-    <section class="flex min-h-svh flex-col px-4 pb-6 sm:px-6">
-        <header class:list={["grid grid-cols-12 gap-x-4 gap-y-1 border-b border-ink py-3 sm:gap-x-6", labelClass]}>
-            <span class="col-span-6 sm:col-span-3">A Studio</span>
-            <span class="order-last col-span-12 sm:order-none sm:col-span-5 sm:col-start-5">
-                Video Games / Web Applications / Cross-Platform Apps
-            </span>
-            <div role="group" aria-label="Color scheme" class="col-span-6 flex items-start justify-end gap-1 sm:col-span-3 sm:col-start-10">
+    <section class="flex min-h-svh flex-col p-12">
+        <header>
+            <div
+                role="group"
+                aria-label="Color scheme"
+                class="flex items-start justify-end"
+            >
                 {colorSchemes.map((scheme, i) => (
                     <>
-                        {i > 0 && <span aria-hidden="true">/</span>}
+                        {i > 0 && (
+                            <span
+                                aria-hidden="true"
+                                class="font-display text-[2vw] leading-[1.1] text-center text-neutral-500"
+                            >
+                                —
+                            </span>
+                        )}
                         <button
                             type="button"
                             data-scheme={scheme}
                             aria-pressed="false"
-                            class="uppercase opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-pressed:underline aria-pressed:decoration-accent aria-pressed:decoration-2 aria-pressed:underline-offset-4 aria-pressed:opacity-100"
+                            class="uppercase opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-pressed:underlin aria-pressed:underline-offset-4 aria-pressed:opacity-100 font-display text-[2vw] leading-[1.1] text-center text-neutral-500"
                         >
                             {scheme}
                         </button>
@@ -29,122 +36,164 @@ const labelClass = "text-xs font-semibold uppercase tracking-wide";
             </div>
         </header>
 
-        <h1 class="my-auto grid grid-cols-12 gap-x-4 py-12 font-display text-[12.5vw] leading-[0.82] sm:gap-x-6">
-            <span class="col-span-12">Unusual</span>
-            <span class="col-span-11 col-start-2 whitespace-nowrap sm:col-span-10 sm:col-start-3">Undertaking<span class="text-accent">.</span></span>
+        <h1 class="py-12 font-display text-[12vw] leading-[0.82] text-center">
+            Unusual Undertaking
         </h1>
 
-        <div class="grid grid-cols-12 gap-x-4 gap-y-4 border-t border-ink pt-3 sm:gap-x-6">
-            <p class="col-span-12 text-lg leading-snug sm:col-span-6 lg:col-span-5">
-                Blending art + design + engineering to create digital things that people love.
-            </p>
-        </div>
+        <p class="lg:py-12 font-display text-[9vw] leading-[1.1] text-center text-neutral-500">
+            A Studio blending art + design + engineering to create digital
+            things that people love.
+        </p>
+    </section>
+    <section class="text-center lg:pt-12 pt-2 text-[9vw] leading-[1.1] text-neutral-500">
+        <button
+            type="button"
+            id="copy-email-button"
+            class="inline-grid font-display leading-none sm:whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:text-[4vw]"
+            aria-label="Copy email address"
+        >
+            <span
+                id="copy-email-default"
+                class="decoration-[0.06em] underline-offset-[0.15em] transition-all duration-300 ease-out text-[5vw] leading-[1.1] text-neutral-500 hover:text-accent"
+            >
+                email@unusualundertaking.com
+            </span>
+            <span
+                id="copy-email-feedback"
+                class="pointer-events-none -translate-y-20 whitespace-nowrap opacity-0 transition-all duration-300 ease-out text-[5vw] leading-[1.1] text-neutral-500"
+                aria-live="polite"
+            >
+                Copied<span class="text-accent">.</span>
+            </span>
+        </button>
+        <p
+            class:list={[
+                "mt-1 -translate-y-18 text-[1.25vw] leading-[1.1] text-neutral-500 font-display",
+                labelClass,
+            ]}
+        >
+            Click to copy
+        </p>
     </section>
 
-    <footer class="px-4 pt-20 pb-6 sm:px-6">
-        <div class="grid grid-cols-12 gap-x-4 gap-y-4 border-t border-ink pt-3 sm:gap-x-6">
-            <p class:list={["col-span-12 sm:col-span-3", labelClass]}>Contact</p>
-            <div class="col-span-12 sm:col-span-9">
-                <button
-                    type="button"
-                    id="copy-email-button"
-                    class="inline-grid text-left font-display text-[7.5vw] leading-none sm:whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:text-[4vw]"
-                    aria-label="Copy email address"
-                >
-                    <span
-                        id="copy-email-default"
-                        class="col-start-1 row-start-1 underline decoration-accent decoration-[0.06em] underline-offset-[0.15em] transition-all duration-300 ease-out"
-                    >
-                        email (at) unusualundertaking.com
-                    </span>
-                    <span
-                        id="copy-email-feedback"
-                        class="pointer-events-none col-start-1 row-start-1 translate-y-1 whitespace-nowrap opacity-0 transition-all duration-300 ease-out"
-                        aria-live="polite"
-                    >
-                        Copied<span class="text-accent">.</span>
-                    </span>
-                </button>
-                <p class:list={["mt-3", labelClass]}>Click to copy</p>
-            </div>
-        </div>
-        <div class:list={["mt-24 flex justify-between", labelClass]}>
+    <footer class="p-12">
+        <div
+            class:list={[
+                "lg:mt-24 flex justify-between text-[1vw] leading-[1.1] text-neutral-500 font-display ",
+                labelClass,
+            ]}
+        >
             <span>© {new Date().getFullYear()} Unusual Undertaking</span>
-            <a href="#" class="transition-colors hover:text-accent">Top ↑</a>
+            <a
+                href="#"
+                class="transition-colors hover:text-accent text-[1vw] leading-[1.1] text-neutral-500 font-display"
+            >
+                Top ↑
+            </a>
         </div>
     </footer>
 
     <script is:inline>
-    const root = document.documentElement;
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-    const schemeButtons = Array.from(document.querySelectorAll("[data-scheme]"));
+        const root = document.documentElement;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+        const schemeButtons = Array.from(
+            document.querySelectorAll("[data-scheme]"),
+        );
 
-    const systemScheme = () => (systemDark.matches ? "dark" : "light");
-    const syncSchemeButtons = () => {
-        const activeScheme = root.dataset.theme ?? systemScheme();
-        for (const button of schemeButtons) {
-            button.setAttribute("aria-pressed", String(button.dataset.scheme === activeScheme));
-        }
-    };
-
-    for (const button of schemeButtons) {
-        button.addEventListener("click", () => {
-            const scheme = button.dataset.scheme;
-
-            // Only remember a choice that differs from the system, so picking the
-            // system's own scheme drops the override and follows the system again.
-            try {
-                if (scheme === systemScheme()) {
-                    delete root.dataset.theme;
-                    localStorage.removeItem("uu-color-scheme");
-                } else {
-                    root.dataset.theme = scheme;
-                    localStorage.setItem("uu-color-scheme", scheme);
-                }
-            } catch {}
-
-            syncSchemeButtons();
-        });
-    }
-
-    systemDark.addEventListener("change", syncSchemeButtons);
-    syncSchemeButtons();
-
-    const copyEmailButton = document.getElementById("copy-email-button");
-    const copyEmailDefault = document.getElementById("copy-email-default");
-    const copyEmailFeedback = document.getElementById("copy-email-feedback");
-
-    if (
-        copyEmailButton instanceof HTMLButtonElement &&
-        copyEmailDefault instanceof HTMLSpanElement &&
-        copyEmailFeedback instanceof HTMLSpanElement
-    ) {
-        let resetCopyFeedbackTimeout = 0;
-
-        copyEmailButton.addEventListener("click", async () => {
-            try {
-                await navigator.clipboard.writeText("email@unusualundertaking.com");
-
-                if (resetCopyFeedbackTimeout) {
-                    window.clearTimeout(resetCopyFeedbackTimeout);
-                }
-
-                copyEmailDefault.classList.add("opacity-0", "-translate-y-1");
-                copyEmailFeedback.classList.remove("opacity-0", "translate-y-1");
-                copyEmailButton.disabled = true;
-                copyEmailButton.setAttribute("aria-label", "Email address copied");
-
-                resetCopyFeedbackTimeout = window.setTimeout(() => {
-                    copyEmailFeedback.classList.add("opacity-0", "translate-y-1");
-                    copyEmailDefault.classList.remove("opacity-0", "-translate-y-1");
-                    copyEmailButton.disabled = false;
-                    copyEmailButton.setAttribute("aria-label", "Copy email address");
-                    resetCopyFeedbackTimeout = 0;
-                }, 3000);
-            } catch {
-                copyEmailButton.setAttribute("aria-label", "Unable to copy email address");
+        const systemScheme = () => (systemDark.matches ? "dark" : "light");
+        const syncSchemeButtons = () => {
+            const activeScheme = root.dataset.theme ?? systemScheme();
+            for (const button of schemeButtons) {
+                button.setAttribute(
+                    "aria-pressed",
+                    String(button.dataset.scheme === activeScheme),
+                );
             }
-        });
-    }
+        };
+
+        for (const button of schemeButtons) {
+            button.addEventListener("click", () => {
+                const scheme = button.dataset.scheme;
+
+                // Only remember a choice that differs from the system, so picking the
+                // system's own scheme drops the override and follows the system again.
+                try {
+                    if (scheme === systemScheme()) {
+                        delete root.dataset.theme;
+                        localStorage.removeItem("uu-color-scheme");
+                    } else {
+                        root.dataset.theme = scheme;
+                        localStorage.setItem("uu-color-scheme", scheme);
+                    }
+                } catch {}
+
+                syncSchemeButtons();
+            });
+        }
+
+        systemDark.addEventListener("change", syncSchemeButtons);
+        syncSchemeButtons();
+
+        const copyEmailButton = document.getElementById("copy-email-button");
+        const copyEmailDefault = document.getElementById("copy-email-default");
+        const copyEmailFeedback = document.getElementById(
+            "copy-email-feedback",
+        );
+
+        if (
+            copyEmailButton instanceof HTMLButtonElement &&
+            copyEmailDefault instanceof HTMLSpanElement &&
+            copyEmailFeedback instanceof HTMLSpanElement
+        ) {
+            let resetCopyFeedbackTimeout = 0;
+
+            copyEmailButton.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(
+                        "email@unusualundertaking.com",
+                    );
+
+                    if (resetCopyFeedbackTimeout) {
+                        window.clearTimeout(resetCopyFeedbackTimeout);
+                    }
+
+                    copyEmailDefault.classList.add(
+                        "opacity-0",
+                        "-translate-y-1",
+                    );
+                    copyEmailFeedback.classList.remove(
+                        "opacity-0",
+                        "translate-y-1",
+                    );
+                    copyEmailButton.disabled = true;
+                    copyEmailButton.setAttribute(
+                        "aria-label",
+                        "Email address copied",
+                    );
+
+                    resetCopyFeedbackTimeout = window.setTimeout(() => {
+                        copyEmailFeedback.classList.add(
+                            "opacity-0",
+                            "translate-y-1",
+                        );
+                        copyEmailDefault.classList.remove(
+                            "opacity-0",
+                            "-translate-y-1",
+                        );
+                        copyEmailButton.disabled = false;
+                        copyEmailButton.setAttribute(
+                            "aria-label",
+                            "Copy email address",
+                        );
+                        resetCopyFeedbackTimeout = 0;
+                    }, 3000);
+                } catch {
+                    copyEmailButton.setAttribute(
+                        "aria-label",
+                        "Unable to copy email address",
+                    );
+                }
+            });
+        }
     </script>
 </Layout>
