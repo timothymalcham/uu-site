@@ -1,0 +1,20 @@
+src/pages/index.astro
+  s_62204544c4c7e8::t_06f3de703b68c1 48,54,59,65
+  s_62204544c4c7e8::t_23b114d71e5a01 49-50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e8d2fed79a31b6132d6046e6f90851f88da8304b",
+  "prompts": {},
+  "sessions": {
+    "s_62204544c4c7e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c6aea415-abb9-4892-a1d9-db59ecd3e4f5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Timothy Malcham <timothymalcham@gmail.com>"
+    }
+  }
+}
