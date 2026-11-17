@@ -2,47 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 
 const colorSchemes = ["light", "dark"];
-const labelClass = "text-xs font-semibold uppercase tracking-wide";
+const labelClass = "font-semibold uppercase tracking-wide";
 ---
 
 <Layout>
-    <section class="flex min-h-svh flex-col p-12">
-        <header>
-            <div
-                role="group"
-                aria-label="Color scheme"
-                class="flex items-start justify-end"
-            >
-                {colorSchemes.map((scheme, i) => (
-                    <>
-                        {i > 0 && (
-                            <span
-                                aria-hidden="true"
-                                class="font-display text-[2vw] leading-[1.1] text-center text-neutral-500"
-                            >
-                                —
-                            </span>
-                        )}
-                        <button
-                            type="button"
-                            data-scheme={scheme}
-                            aria-pressed="false"
-                            class="uppercase opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-pressed:underlin aria-pressed:underline-offset-4 aria-pressed:opacity-100 font-display text-[2vw] leading-[1.1] text-center text-neutral-500"
-                        >
-                            {scheme}
-                        </button>
-                    </>
-                ))}
-            </div>
-        </header>
-
+    <section class="flex flex-col p-12">
         <h1 class="py-12 font-display text-[12vw] leading-[0.82] text-center">
             Unusual Undertaking
         </h1>
 
         <p class="lg:py-12 font-display text-[9vw] leading-[1.1] text-center text-neutral-500">
-            A Studio blending art + design + engineering to create digital
-            things that people love.
+            A Studio
+        </p>
+
+        <p class="lg:py-12 font-display text-[9vw] leading-[1.1] text-center text-neutral-500">
+            Blending art + design + engineering to create digital things that
+            people love
         </p>
     </section>
     <section class="flex flex-col items-center px-4 pt-2 text-center lg:pt-12">
@@ -73,14 +48,29 @@ const labelClass = "text-xs font-semibold uppercase tracking-wide";
     <footer class="p-12">
         <div
             class:list={[
-                "lg:mt-24 flex justify-between text-[1vw] leading-[1.1] text-neutral-500 font-display ",
+                "lg:mt-24 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4 text-[max(0.75rem,1vw)] leading-[1.1] text-neutral-500 font-display",
                 labelClass,
             ]}
         >
             <span>© {new Date().getFullYear()} Unusual Undertaking</span>
+            <div role="group" aria-label="Color scheme" class="flex gap-1">
+                {colorSchemes.map((scheme, i) => (
+                    <>
+                        {i > 0 && <span aria-hidden="true">—</span>}
+                        <button
+                            type="button"
+                            data-scheme={scheme}
+                            aria-pressed="false"
+                            class="-my-3 py-3 uppercase opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-pressed:underline aria-pressed:underline-offset-4 aria-pressed:opacity-100"
+                        >
+                            {scheme}
+                        </button>
+                    </>
+                ))}
+            </div>
             <a
                 href="#"
-                class="transition-colors hover:text-accent text-[1vw] leading-[1.1] text-neutral-500 font-display"
+                class="-my-3 py-3 transition-colors hover:text-accent"
             >
                 Top ↑
             </a>
